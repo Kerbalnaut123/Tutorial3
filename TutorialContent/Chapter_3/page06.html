@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 3 - Enemies">
+				<option style="font-weight:bold;" value="page06.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Game Speed</option>
+					<option value="page02.html">The Enemy Object</option>
+					<option value="page03.html">Collisions</option>
+					<option value="page04.html">Collision Masks</option>
+					<option value="page05.html">Player Collisions</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+In this short chapter we have added yet another object to our game, the enemy, and got things feeling a bit more like how an arcade game should feel. The main points you should have learned from this are:
+
+<p>
+<ul>
+	<li>Where the <b>Game Options</b> are and how to change the <b>Game FPS</b>
+	<li>How to access variables in other instances using the "point" method or using the <b>Applies To...</b> action <img style="vertical-align:middle" src="../Icon_DnD_AppliesTo.png">
+	<li>How to edit the collision mask for a sprite and what effect it will have on the game
+	<li>How to add collision events and the keyword <tt>other</tt>
+	<li>How to restart the game
+</ul>
+
+<p>
+That might not seem like much, but the core concepts here are probably amongst the most important you can learn. Being able to access variables in other instances is incredibly useful and very powerful, and it's important to know how and when it can be done. The same for the collisions mask, as having the wrong collision mask in your game will seriously affect the gameplay and the fun of the player.
+
+<p>
+In the next chapter, we are going to look at making the visual aspect of the game nicer, in particular adding backgrounds to the arena, as well as making the arena bigger and having a "camera" follow the player around...
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page05.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="../Chapter_4/page01.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

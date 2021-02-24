@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 5 - Scoring">
+				<option style="font-weight:bold;" value="page04.html">Setting Score</option>
+				<option value="page05.html">Styling Text</option>
+				<option value="page06.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Score Controller</option>
+					<option value="page02.html">The Draw Event</option>
+					<option value="page03.html">Local Variables</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+To get our score to go up as we play, we need to add some extra actions into the <b>Step Event</b> of the object <i>obj_enemy</i>, so open that now if it is not open already. We currently have the following actions in that event:
+
+<img class="center" src="04_01_EnemyStep.png" alt="The Current Enemy Step Event">
+
+<p>
+We need the enemy to add a value to the score object variable "<tt>thescore</tt>" and so for that we will use the <b>Applies To...</b> option in an action. We covered using the <b>Applies To...</b>" <i>action</i> <img style="vertical-align:middle" src="../Icon_DnD_AppliesTo.png"> in <a href="../Chapter_3/page03.html">Chapter 3</a> where we used the "<tt>other</tt>" keyword to refer to the other instance in the collision. However "<tt>other</tt>" in that context <i>only</i> works for the collision event, and we want to apply an action to an instance in the Step Event, so we need to change the <i>scope</i> of the action we are going to use.
+
+<p>
+To start with, drag an <b>Assign Variable</b> action <img style="vertical-align:middle" src="../Icon_DnD_AssignVariable.png"> into the action workspace and position it <i>above</i> the Destroy action <img style="vertical-align:middle" src="../Icon_DnD_InstanceDestroy.png">:
+
+<p>
+
+<img class="center" src="04_02_AddAction.gif" alt="Add Assign Variable Action">
+
+<p>
+We want to set this action so that it changes the "<tt>thescore</tt>" value in the object <i>obj_score</i>. Now, as shown before, we <i>could</i> pull in the <b>Applies to...</b> action here, but for a single action like this it's not necessary as we can change the scope of any action by clicking the little arrow at the top right, like this:
+
+<p>
+
+<img class="center" src="04_03_SetScope.gif" alt="Set Action Scope">
+
+<p>
+Note how the action now has a different coloured outline? This means that the action is going to work on a different object (in this case we have selected <i>obj_score</i> as the object to target). Now set the action as follows:
+
+<img class="center" src="04_04_SetAction.png" alt="Set Action Values">
+
+<p>
+Note that when using an object index like this, if there are more than one instance of the object in the room when the code is run it will run for <i>all instances of the object</i>. Using <i>obj_score</i> in this case is fine because we are only going to have one of them in the room, but you can use this method to target a single instance if you target an instance ID (which you can get from the Room Editor or by certain functions), by placing it in the text field at the top which says <i>Expression</i>:
+
+<img class="center" src="04_05_Expression.png" alt="Expression In Applies To">
+
+<p>
+Our action will now add 5 onto the <tt>thescore</tt> variable every time an enemy instance is destroyed, and we can now add the score object into our game room. To do that open the room resource (double click <img style="vertical-align:middle" src="../Icon_RMB.png"> on it in the resource tree), and then drag an instance of the object <i>obj_score</i> into the room and place it anywhere (make sure that you have selected the "Instances" layer first). Since it doesn't have a sprite it will be shown with a question mark icon <img style="vertical-align:middle" src="../Icon_QM.png">.
+
+<img class="center" src="04_02_QM_Icon.png" alt="Score Object With ? Icon">
+
+<p>
+You can play the game now and you will see the score displayed at the top, and if you shoot and destroy the enemy it will go up by five. You might have to squint a bit though, as it's written rather small and isn't very easy to read, so lets fix that now.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page03.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page05.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

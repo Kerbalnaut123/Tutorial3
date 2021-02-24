@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 3 - Enemies">
+				<option style="font-weight:bold;" value="page02.html">The Enemy Object</option>
+				<option value="page03.html">Collisions</option>
+				<option value="page04.html">Collision Masks</option>
+				<option value="page05.html">Player Collisions</option>
+				<option value="page06.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Game Speed</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+The workflow for creating the enemy object is the exact same as that which we used for the player and bullet objects, so we'll simply list the steps here, as you should be familiar with how it goes:
+
+<ul>
+	<li>Create a new sprite resource<br>
+	<li>Call it "<i>spr_enemy</i>"<br>
+	<li>Import an image (remember, while following this tutorial the file explorer should take you to the <i>TutorialResources</i> folder automatically where you can find the sprites used in the "Images" sub-folder). If you have any issues, you can also find the images <a href='gms2tutorials:///ShowFiles?path=../TutorialResources/Images'>here</a>.<br>
+	<li>Set the origin of the sprite to the middle (use the drop down menu)<br>
+	<li>Create a new object resource<br>
+	<li>Call it "<i>obj_enemy</i>"
+	<li>Assign the enemy sprite we just added to the new object
+</ul>
+
+<p>
+If all has gone correctly, your workspace should look like this:
+
+<img class="center" src="02_01_Workspace.png" alt="Workspace">
+
+<p>
+We now add a <b>Create Event</b> for our enemy object. In this event, we will add the following <b>Assign Variable</b> action <img style="vertical-align:middle" src="../Icon_DnD_AssignVariable.png">:
+
+<img class="center" src="02_02_AssignVariable.png" alt="Assign hp Variable">
+
+<p>
+"<tt>hp</tt>" is an <b>instance variable</b> that we want all instances of this object to have, and it will store the "health points" for the enemy object. Every time we shoot the enemy, we will deduct 1 from this value until it reaches 0 and it is removed from the game. Keep in mind that instance variables need to be initialised before use, and so that is why we have them in the <b>Create Event</b>, as that event is run for every instance the moment it is created in a room and the event only runs <i>once</i> so the variable is only set once at the start.
+
+<p>
+Next we need another variable for the speed we want the enemy to move at:
+
+<img class="center" src="02_03_SetSpeed.png" alt="Assign Enemy spd Variable">
+
+<p>
+This variable will be used to define the movement speed of the instance. Note that we are not setting the "speed" value directly, but instead will be using this custom variable to set the speed. Why? Well, we <i>could</i> just use the value 1.5 in all future actions when we deal with the instance speed, but if we want to <i>change</i> that value, it would mean searching through all the actions and manually fixing it. This can be very time consuming and error prone, so we use the instance variable instead to store the value. This means that should we want to change it, we <i>only</i> need to change it in this one event, and all the rest of the actions will "just work".
+
+<p>
+We now need to add a <b>Step Event</b> to the enemy object. This event runs every game frame and in it we are going to check for a player instance in the room, and if one is found we'll move towards it. The actions will be like this:
+
+<img class="center" src="02_04_StepEvent.png" alt="Enemy Step Event">
+
+<p>
+Let's just go through the actions here one at a time so you can see what is happening:
+
+<p>
+<table>
+	<tr>
+		<td style="width:50px;border:0px"><img align="middle" src="../Icon_DnD_InstanceExists.png" alt="Instance Exists"></td>
+		<td style="border:0px">With this action, we check to see if there is an instance of the player object in the game room because later we want to access certain variables from that instance. This is a bit of forward thinking on our part, as we will eventually have the player "die" in our game, removing its instance from the room, and if we try to access the variables of an instance that <i>doesn't</i> exist, then the game will error and crash.<br><br></td>
+	<tr>
+	<tr>
+		<td style="width:50px;border:0px"><img align="middle" src="../Icon_DnD_SetPointDirection.png" alt="Assign Variable"></td>
+		<td style="border:0px">We <i>know</i> that an instance of the player object exists, thanks to the above check, so that means we can access its variables. The method shown here is the "<i>point</i>" method for accessing variables in another instance. Simply provide <tt>&lt;object_index&gt;.&lt;variable&gt;</tt> or <tt>&lt;instance_id&gt;.&lt;variable&gt;</tt> and you can get or set values from another instance, as long as it exists in the room (see the comments above checking if an instance exists above).<br><br></td>
+	<tr>
+	<tr>
+		<td style="width:50px;border:0px"><img align="middle" src="../Icon_DnD_SetSpeed.png" alt="Set Speed"></td>
+		<td style="border:0px">We have set the direction so now we use this action to set the speed to the variable we defined in the create event.<br><br></td>
+	<tr>
+</table>
+
+<p>
+<br>
+So, if there is an instance of the player, we then tell the enemy to move at the speed of the "<tt>spd</tt>" variable towards it. Finally we want to add this, outside of the "if":
+
+<img class="center" src="02_05_SetAngle.png" alt="Set Rotation">
+
+<p>
+You've seen this action before in the other objects, so you should know what we're doing here... The full action list now looks like this:
+
+<img class="center" src="02_06_AllActions.png" alt="All Enemy Actions">
+
+<p>
+You should open the Room Editor now on our game room and add a few instances of this enemy object into it (click <img style="vertical-align:middle" src="../Icon_LMB.png"> and drag from the resource tree into the room area), and then test the game:
+
+<p>
+<img class="center" src="02_02_EnemyTest.gif" alt="Enemy Test">
+
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page01.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page03.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

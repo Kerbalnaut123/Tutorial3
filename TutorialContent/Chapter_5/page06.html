@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 5 - Scoring">
+				<option style="font-weight:bold;" value="page06.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Score Controller</option>
+					<option value="page02.html">The Draw Event</option>
+					<option value="page03.html">Local Variables</option>
+					<option value="page04.html">Setting Score</option>
+					<option value="page05.html">Styling Text</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+In this chapter we spent some time showing how to add text to your game and increment the score, which shows the player how well they are doing as they play. The main points you should have picked up while working through this chapter are as follows:
+
+<p>
+<ul>
+	<li>How to use the <b>Draw Event</b>
+	<li>How to use (and understand) <b>temporary (local) variables</b>
+	<li>How to change action scope using <b>Applies to...</b> from within the action
+	<li>How to create a font resource and use it
+	<li>How to set a font and a colour for drawing
+</ul>
+
+<p>
+That might not seem like much, but with this knowledge you can start to set up more complex displays for your player to include any number of written details, and format it to follow the view camera at the position you want. It's worth taking a moment to look at all the different draw actions for text that are available to you (press <img style="vertical-align:middle" src="../Icon_f1.png"> to open the manual) as they permit you to scale the text, or limit it to a specific string width (number of characters) and many other things. In fact, you can save this project file and then save it again under a different name and experiment a bit with the different functions to see what they do (you can load the original saved tutorial later to continue).
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page05.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="../Chapter_6/page01.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

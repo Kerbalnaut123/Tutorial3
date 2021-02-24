@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 6 - Sound">
+				<option style="font-weight:bold;" value="page02.html">The Sound Editor</option>
+				<option value="page03.html">Playing A Sound</option>
+				<option value="page04.html">Pitch</option>
+				<option value="page05.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Sound Files</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+Creating a sound resource is exactly the same as creating any other resource. Simply go to the <b>Resource Tree</b> and right click <img style="vertical-align:middle" src="../Icon_RMB.png"> on the <b>Sound</b> resource and click <i>Create</i>. This will open up the <b>Sound Editor</b>:
+
+<img class="center" src="02_01_SoundEditor.png" alt="The Sound Editor">
+
+<p>
+First thing to do is the name this new resource, and since it's for when the enemy dies we'll call it <i>snd_death</i>, so name it that now. You can then click on the Import button <img style="vertical-align:middle" src="../Icon_ImportSound.png"> to bring up a file selector and look for an appropriate sound which as mentioned at the start should be a <tt>*.wav</tt> format file (remember, while following this tutorial the file explorer should take you to the <i>TutorialResources</i> folder automatically where you can find the sounds used in the "Sound" sub-folder). If you have any issues, you can also find the sound <a href='gms2tutorials:///ShowFiles?path=../TutorialResources/Sound'>here</a>.
+
+<p>
+Once you have named the resource and added the file, you can use the audio preview buttons in the editor to listen to the sound and set its volume:
+
+<img class="center" src="02_02_PlayBack.png" alt="Playback Controls">
+
+<p>
+The rest of the options here we can leave at their default values, but if you want to find out more about them then hit <img style="vertical-align:middle" src="../Icon_f1.png"> to open the manual and go to the section on the <b>Sound Editor</b>. You can close the Sound Editor now as we are finished with the resource and are ready to add it to our game.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page01.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page03.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

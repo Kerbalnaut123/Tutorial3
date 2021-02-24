@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 7 - Title Screen">
+				<option style="font-weight:bold;" value="page02.html">Title Room</option>
+				<option value="page03.html">Title Room Properties</option>
+				<option value="page04.html">Adding The Title</option>
+				<option value="page05.html">Changing Rooms</option>
+				<option value="page06.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Title Page Sprites</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 6 - Sound</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+At the moment, our game just starts in the main game room, but we want it to show a title screen and have the player do something like press Enter or click anywhere to actually start the game. To achieve this we are going to use another <b>Room Resource</b>, so right click <img style="vertical-align:middle" src="../Icon_RMB.png"> on the Room resource folder and select <i>Create Room</i> to make one. The new room will be added after the current one:
+
+<img class="center" src="02_01_NewRoom.png" alt="New Room Resource">
+ 
+<p>
+We'll call this new room "<tt>rm_titles</tt>". There is a minor problem that we have to fix now, though... <i>GameMaker Studio 2</i> will run rooms in consecutive order, meaning the room at the start of the room resource list is the one that will be shown initially when we start the game. This means that we now have to re-order the rooms so that the title room is placed before the game room.
+
+<p>
+<img class="center" src="02_02_ReorderRooms.gif" alt="Reorder Rooms">
+
+<p>
+Notice that when you reorder the rooms there are actually two different places where you can drop the room when you click <img style="vertical-align:middle" src="../Icon_LMB.png"> and drag. The first is dropping it <i>on</i> another rom (the room being dropped on is highlighted), which means that you want the selected room to become a "child" of the other room, and the other is dropping it over a room (where a bar is highlighted above the room), which will place it in the room order. Making child rooms is an advanced and powerful feature, but outside the scope of this tutorial, so just drag it into the position above the room "<tt>rm_game</tt>", as shown in the animation above for now.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page01.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page03.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 2 - Shooting">
+				<option style="font-weight:bold;" value="page06.html">Bullet Timing</option>
+				<option value="page07.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Bullets</option>
+					<option value="page02.html">The Bullet Object</option>
+					<option value="page03.html">Layers</option>
+					<option value="page04.html">Better Bullets</option>
+					<option value="page05.html">The Bullet Layer</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+At the moment, our bullets are created 1 per game frame (every time the game loops round and performs the Step Event again), which is a bit too fast for what we require. So now we need to slow the rate of fire down a bit. For this we need to add a <b>Create Event</b> for the object "<i>obj_player</i>", and in it add the following action:
+
+<img class="center" src="06_01_AssignVariable.png" alt="Assign Cooldown Variable">
+
+<p>
+All we are doing here is preparing a variable called "cooldown" for use later on in the game - remember, the Create Event is only run <i>once</i> when the instance is first created, so this variable is being initialised to 0 once only. We've seen built-in variables already, but this is one you are creating and it's called an <b>instance variable</b>. Instance variables are valid for any event in an instance and can be changed or read in other action blocks. However they are also unique to each instance, so if you have 100 instances of "obj_player" in your game, they will all have an instance variable "cooldown" since you defined it in the base object, but each one could have it set to a different value throughout the time the game runs.
+
+<p>
+We are now going to use this variable in the <b>Step Event</b> of the player object to control how often the shooting occurs, like this:
+
+<img class="center" src="06_03_NestedIf.png" alt="Nesting Ifs">
+
+<p>
+What we have done is "nest" an <b>if variable</b> action <img style="vertical-align:middle" src="../Icon_DnD_IfVariable.png"> within the mouse down action, so it now reads "if the mouse is held down, and if the variable <tt>cooldown</tt> is less than 1... {do something}". That "do something" is create our bullet instance and then set the variable <tt>cooldown</tt> to 3 (using the actions <b>Assign Variable</b> <img style="vertical-align:middle" src="../Icon_DnD_AssignVariable.png">), which means that the next game frame, the <b>if variable</b> condition will <i>fail</i> and no bullet will be created because "cooldown" is not less than 1. 
+
+<p>
+It can be a bit tricky to reorganise your actions so the following animation shows you how to add these actions correctly:
+
+<img class="center" src="06_02_AddActions.gif" alt="Adding Actions">
+
+<p>
+There is a problem with this however... We don't count down the variable <tt>cooldown</tt> anywhere, which means we will fire one bullet and no more since it will be set to 3 and the subsequent "if" check will fail. So we need to add another <b>Assign Variable</b> <img style="vertical-align:middle" src="../Icon_DnD_AssignVariable.png"> action after all the others and <i>outside</i> of the "if" checks:
+
+<img class="center" src="06_04_SetVariable.png" alt="Subtract From cooldown Variable">
+
+<p>
+ Note that we have checked the "<i>relative</i>" checkbox. By doing this we are adding -1 <i>relative to the current value</i>, ie: subtracting 1 from the current value. If this was not checked then we would be simply setting the <tt>cooldown</tt> variable to -1.
+ 
+ <p>
+ Your full action list should now look like this:
+
+<img class="center" src="06_05_FinalActions.png" alt="Full Action List">
+
+<p>
+If you test the game again now, you can see that the bullets fire a bit slower, but for our purposes it still seems too fast. This is now an easy thing to fix, as it requires a simple change to the number of frames we wait between creating each new bullet instance. So, change the "3" in the Step Event <b>Assign Variable</b> action <img style="vertical-align:middle" src="../Icon_DnD_IfVariable.png"> to 10 and test again.
+
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page05.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page07.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

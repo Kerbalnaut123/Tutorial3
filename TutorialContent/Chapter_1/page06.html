@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 1 - Movement">
+				<option style="font-weight:bold;" value="page06.html">Chapter 1 - Events And Code</option>
+				<option value="page07.html">Movement</option>
+				<option value="page08.html">Rotation</option>
+				<option value="page09.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">New Project</option>
+					<option value="page02.html">The Workspace</option>
+					<option value="page03.html">Sprites</option>
+					<option value="page04.html">Objects And Instances</option>
+					<option value="page05.html">Rooms</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+You can close the game window now (if you haven't already) and then double click <img style="vertical-align:middle" src="../Icon_LMB.png"> on the "obj_player" object in the resource tree. This will take us back to our main workspace and focus it on the object we want to edit.
+
+<p>
+You'll notice that our object has another window <i>chained</i> to it, the <b>Event Editor</b>. A game in <i>GameMaker Studio 2</i> is simply a selection of code within events that are performed a number of times every second. This is called the "game loop" and a single game loop is called a <i>game frame</i>. The number of game frames in a second is what gives us our <i>Frames per Second</i> (FPS) value for the project. By default this is set to 30, meaning that our game will perform a game frame (loop through all the game code) 30 times every second and in each single frame of the game code you have <b>Events</b>. These events fall into two broad categories:
+
+<p>
+<ul>
+	<li>Those events that happen every single game loop - like the <b>Step</b> event or the <b>Draw</b> event
+	<li>Those events that happen only when a certain criteria has been met - like the <b>Keypress</b> event or the <b>Create</b> event
+</ul>
+
+<p>
+You can see all the event categories by clicking <img style="vertical-align:middle" src="../Icon_LMB.png"> on the <i>Add Event</i> button:
+
+<img class="center" src="06_01_EventList.png" alt="The Event List">
+
+<p>
+In the image above you will see that we have highlighted the "Step" category, and within that the general <i>Step Event</i>, as this is what want to add to our object. If you select it then you'll see the event added into the Event Editor window and a new window chained to it:
+
+<img class="center" src="06_02_DnDEditor.png" alt="The DnD&trade Editor">
+
+<p>
+The new window is the <b>DnD&trade; Editor</b> and is split into three parts:
+<ul>
+	<li>On the left we have the <b>action list</b> - this gives a list overview of all the actions in the event
+	<li>In the middle we have our <b>action workspace</b> - this is where you drop the actions that you want to perform and edit them
+	<li>On the right we have the <b>action toolbox</b> - Here you can find all the Drag and Drop&trade; action blocks that you can use to create your games
+</ul>
+
+<p>
+The idea of Drag and Drop&trade; is simple - you select an action from the toolbox and drag then drop it onto the action workspace. Once in the workspace you edit the parameters that it requires, and then continue to Drag and Drop&trade; further actions to "chain" them to the previous one. Note that actions are added in a linear fashion, so each subsequent action that you add will be added <i>after</i> the previous. Let's see how that works in practice by adding an action...
+
+<p>
+As mentioned above, the Step Event is run each and every game loop, so anything we put in here will happen once per game frame (30 times in a second for a 30 FPS game, 60 for a 60fps game, etc...). In this case we are going to add an action to the event to make the player instance move right across the screen. We could use the <b>movement</b> actions for this, but to give you a better idea of how <i>GameMaker Studio 2</i> does things we are going to set the built in variable "<tt>x</tt>" to move and use the action <b>Assign Variable</b> <img style="vertical-align:middle" src="../Icon_DnD_AssignVariable.png">:
+
+<img class="center" src="06_05_DragAndDrop.png" alt="Drag and Drop&trade; Assign Variable">
+
+<p>
+We want to set the value of "<tt>x</tt>" to 4 <i>relative</i> to its previous value, so we set the action to look like this:
+
+<img class="center" src="06_06_FinalAction.png" alt="Final Action">
+
+Note that now in the list view on the left of the editor, we have the action written as plain text:
+
+<img class="center" src="06_04_FinalCode.png" alt="List View">
+
+<p>
+So what does this do then? All instances have some <i>built-in variables</i>, of which "<tt>x</tt>" and "<tt>y</tt>" are perhaps the most important as they set the position of the instance in the game room. In this case we are telling <i>GameMaker Studio 2</i> to take the x position value and then add 4 to it. Note that if we hadn't flagged the "relative" check-box, then we would be <i>setting</i> <tt>x</tt> to 4 rather than adding to it, and if we'd used -4 instead of 4, then we would have been <i>subtracting</i> 4 from <tt>x</tt>.
+
+<p>
+If you now run the game again, you'll see the player instance move off to the right:
+
+<p>
+<img class="center" src="06_03_PlayerMovement.gif" alt="Basic Player Movement">
+
+<p>
+We now have some movement, but it's not very much fun for anyone... let's now add some new code to the player to make it respond to the user pressing the arrow keys on the keyboard.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page05.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page07.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

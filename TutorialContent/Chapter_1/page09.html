@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 1 - Movement">
+				<option style="font-weight:bold;" value="page09.html">Chapter 1 - Summary</option>
+				<optgroup label="--------------------------------------------------">
+					<option value="page01.html">New Project</option>
+					<option value="page02.html">The Workspace</option>
+					<option value="page03.html">Sprites</option>
+					<option value="page04.html">Objects And Instances</option>
+					<option value="page05.html">Rooms</option>
+					<option value="page06.html">Events And Code</option>
+					<option value="page07.html">Movement</option>
+					<option value="page08.html">Rotation</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+The first chapter of this tutorial is now complete, and you have the player moving around and you have their "ship" turning towards the mouse ready to start shooting! Before going any further though, let's just go over a few of the core concepts that you should take away with you from this chapter:
+
+<p>
+<ul>
+	<li>You were shown how to create a New Project</li><br>
+	<li>You were shown how to dock windows to the workspace, and how to move around the workspace with the mouse</li><br>
+	<li>You learned that <b>sprites</b> are image resources with some additional properties</li><br>
+	<li>You learned that objects are what makes a game function, and that they are "blueprints" for instances in the game room</li><br>
+	<li>You learned about the game loop and <b>Events</b></li><br>
+	<li>You found out that you can only have a game if it has at least one room resource</li><br>
+	<li>You added some basic Drag and Drop&trade;, and learned about variables and conditionals</li><br>
+	<li>You made a test project that does something!</li>
+</ul>
+
+<p>
+Hopefully when you look at that list you can feel proud of yourself. You've come a long way from knowing nothing to creating something that is actually interactive - if not quite a game yet - and have learned the basics of how to use <i>GameMaker Studio 2</i>. In the next chapter we'll expand on what you've learned here by adding bullets and other world items into our Arena Shooter game.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page08.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="../Chapter_2/page01.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

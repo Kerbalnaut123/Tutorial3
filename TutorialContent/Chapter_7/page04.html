@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 7 - Title Screen">
+				<option style="font-weight:bold;" value="page04.html">Adding The Title</option>
+				<option value="page05.html">Changing Rooms</option>
+				<option value="page06.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Title Page Sprites</option>
+					<option value="page02.html">Title Room</option>
+					<option value="page03.html">Title Room Properties</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 6 - Sound</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+To move from one room - the title room - to the next one - the game room - we will need a new object, so go ahead and make one now (Right click <img style="vertical-align:middle" src="../Icon_RMB.png"> on the object resource folder and select <i>Create</i>). Name this object "<tt>obj_title</tt>" and assign it the title sprite we created at the start of this chapter. Now add a <b>Create Event</b>:
+
+<img class="center" src="04_01_TitleObject.png" alt="The Title Object">
+
+<p>
+We are going to have our object draw its sprite fading in gradually, just to create a slightly nicer looking title screen. To so this we need to use the <b>built in</b> variable <tt>image_alpha</tt>. All instances of objects have a number of built in variables that are related to how the assigned sprite will be drawn. In <a href="../Chapter_5/page03.html">Chapter 5</a> we explained how <i>GameMaker Studio 2</i> default draws the sprite assigned to an instance of an object, and most of the objects in this game have no Draw Event. However letting <i>GameMaker Studio 2</i> default draw the sprite does not mean you cannot change how it is drawn, as you can using the different built in variables. These built in variables are changed using the different transform actions from the <b>Instances</b> library:
+
+<img class="center" src="04_02_TransformActions.png" alt="The Transform Instance Actions">
+
+<p>
+You can change things like the scale, the rotation, the colour and the alpha, all through using these actions to change the built in variables. In this case we are going to change the alpha to make the sprite "invisible" at the start of the room. For this we add the <b>Set Instance Alpha</b> <img style="vertical-align:middle" src="../Icon_DnD_SetInstanceAlpha.png"> action into the <b>Create Event</b> and set it to 0:
+
+<img class="center" src="04_03_InstanceAlpha.png" alt="Set The Instance Alpha">
+
+<p>
+We also want to make sure that the sprite will be drawn in the exact centre of the screen, so we need to add the <b>Jump To Point</b> <img style="vertical-align:middle" src="../Icon_DnD_JumpToPoint.png"> action, from the <i>Movement</i> library, like this:
+
+<img class="center" src="04_04_JumpToPoint.png" alt="Set The Instance To The Centre Of The Room">
+
+<p>
+This action will set the instance to the position specified, and in this case we are using the <b>global</b> variables, <tt>room_width</tt> and <tt>room_height</tt> to get the middle of the room (half width and half height) for the instance when created.
+
+<p>
+Next we need to add a <b>Step Event</b> with the following actions:
+
+<img class="center" src="04_05_StepEvent.png" alt="Step Event Actions">
+
+<p>
+
+
+All this action block is going to do is add a small amount to the <tt>image_alpha</tt> value and then check it to see if it is over 1, and if it is it resets it to 1. In this way we can ensure that the image alpha will increment until it reaches 1 and go no higher (this is important, as while you </i>can</i> set the image alpha value to more than 1 - or even negative numbers - this will have different effects on different platforms and the recommended value for this variable is always between 0 and 1).
+
+<p>
+We can now drop this object into the title room and test the game (open the room editor, click <img style="vertical-align:middle" src="../Icon_LMB.png"> on the object in the Resource Tree, then drag an instance of it into the room editor and release the mouse). You don't even have to worry about placing it properly because we've taken care of that in the Create Event of the object.
+
+<p>
+<img class="center" src="04_02_RoomIntro.gif" alt="Room Introduction">
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page03.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page05.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

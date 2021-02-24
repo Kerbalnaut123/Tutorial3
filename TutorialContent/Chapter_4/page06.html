@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 4 - Tiles And Views">
+				<option style="font-weight:bold;" value="page06.html">Cameras And Viewports</option>
+				<option value="page07.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Tiles And Views</option>
+					<option value="page02.html">Tile Set Sprites</option>
+					<option value="page03.html">Making A Tile Set</option>
+					<option value="page04.html">Tilemap Layers</option>
+					<option value="page05.html">Room Size</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+To prevent the issue with the huge window we need to tell <i>GameMaker Studio 2</i> to only show a portion of the game room using a camera view. We can set this up from the room editor too, from the section titled <b>Views</b> in the <b>Room Properties</b>. Clicking on that section will expand the different properties:
+
+<img class="center" src="06_01_RoomViews.png" alt="View Properties">
+
+<p>
+The first thing to do here is to check the box beside <b>Enable Views</b>. No matter how you set things up, if you don't enable views then nothing will change, so this is very important! Next you need to expand the section on <b>View 0</b>. You can have multiple camera views in a room, and they can all be enabled and displayed at different positions (permitting, for example, a two player split screen game, with a camera view for each player), however for our game we only need one, and that's the camera <b>View 0</b>.
+
+<img class="center" src="06_02_View0.png" alt="View 0 Expanded">
+
+<p>
+There are a lot of options here, but the first thing we need to do is switch the view "on". This is done by checking the box labelled <b>View Visible</b>. Even if you have enabled views, if you don't have one that is set to be visible you won't get the desired result. Once it's been checked, you'll see a rectangle appear in the actual room preview to show you where the new view camera will be placed:
+
+<img class="center" src="06_03_ViewEnabled.png" alt="View 0 Enabled">
+
+<p>
+This view camera "rectangle" is defined from the view properties, with the <i>xpos</i> and <i>ypos</i> values being the top <i>left</i> corner of the view, and then the <i>width</i> and <i>height</i> defining the size from that point. You can also set the the camera <b>view port</b>, which is what defines the area of the screen that will be used to display the camera view. Basically, you can set a view camera to be any size, and then set the view port to be a different size and the camera view will be scaled to fit in that space. So you can have a camera view that is 480x320 (for example) but make the camera port 960x640 and the camera view will be scaled up to fit. However for our game we are keeping things simple and all those values can be left at their default settings.
+
+<p>
+The final thing we need to do is set the <b>Object Following</b>. By default a view camera is static, ie: it won't move unless you code it to, but we can set it to follow an instance of an object automatically and without code using this button:
+
+<img class="center" src="06_04_ObjectFollow.png" alt="Object Following">
+
+<p>
+Once you've set it to follow the player object, we also need to set the <b>Horizontal Border</b> and <b>Vertical Border</b> values. These dictate how close to the edge of the view the instance needs to be before the view camera will move to follow it. At the moment it's 32px, which means that the player would have to move right up to the edge of the view camera window before it will move to follow, which in an arena shooter like ours is just too small... we want it to move before that so that the player can see what is around them. So, set those values to 256px each:
+
+<img class="center" src="06_05_FollowValues.png" alt="Object Following Border Values">
+
+<p>
+Notice we leave the two "speed" values at -1... If we set this then we are telling the view camera to only move by a specific amount each game frame, so that if we set it to (for example) 5, then the view camera will follow the player only 5px per game frame. This can be really useful and can give a nice "catchup" effect if the instance being followed moves faster than the values given, but for our game we want the camera to <i>always</i> stay centered on the player, so we leave it at -1, which is essentially telling the camera view to move "instantly" to the instance being followed position every game frame.
+
+<p>
+If you run the game now you can see how this all works to make the camera follow the player while they explore a larger room and shoot the enemies...
+
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page05.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page07.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<option style="font-weight:bold;" value="index.html"><b>Introduction</b></option>
+			<option value="Chapter_1/page01.html">Chapter 1 - Movement</option>
+			<option value="Chapter_2/page01.html">Chapter 2 - Shooting</option>
+			<option value="Chapter_3/page01.html">Chapter 3 - Enemies</option>
+			<option value="Chapter_4/page01.html">Chapter 4 - Tiles And Views</option>
+			<option value="Chapter_5/page01.html">Chapter 5 - Scoring</option>
+			<option value="Chapter_6/page01.html">Chapter 6 - Sounds</option>
+			<option value="Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+			<option value="Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+This tutorial will take you through the process of creating a small game using <i>GameMaker Studio 2</i>. The tutorial itself is rather large and covers everything from the <i>GameMaker Studio 2</i>  user interface to creating game graphics and then getting them moving, as well as player  interaction within a game, and much, much more. So, to keep things simple we have split it into the following chapters:
+<blockquote>
+	<ol>
+		<li><a href="Chapter_1/page01.html">Chapter 1 - Movement</a>
+		<li><a href="Chapter_2/page01.html">Chapter 2 - Shooting</a>
+		<li><a href="Chapter_3/page01.html">Chapter 3 - Enemies</a>
+		<li><a href="Chapter_4/page01.html">Chapter 4 - Tiles And Views</a>
+		<li><a href="Chapter_5/page01.html">Chapter 5 - Scoring</a>
+		<li><a href="Chapter_6/page01.html">Chapter 6 - Sounds</a>
+		<li><a href="Chapter_7/page01.html">Chapter 7 - Title Screen</a>
+		<li><a href="Chapter_8/page01.html">Chapter 8 - Spawners</a>
+	</ol>
+</blockquote>
+
+<p>
+Each chapter is also accompanied by a short video that takes you through each of the steps outlined in text, and you can close <i>GameMaker Studio 2</i> at any time in the progress of this tutorial (saving your project) and when you next load the project you will be taken to the place where you left off. If you wish to play around with what you have learned so far, we recommend that you save the project in its current state - so that you can continue from the same point later - then save it again with a different name and edit the renamed project so as not to lose or change anything that is important to future chapters.
+
+<p>
+Note that the video overlay window can be closed and opened separately, so if you close it by mistake you can either click one of the links given at the start of each chapter (and listed below too), or you can go to the <b>Window</b> menu in the IDE and select <b>Tutorial Windows</b>.
+
+<img class="center" src="OpenTutorial_Window.png" alt="Open Tutorial Window">
+
+<p>
+The videos that accompany each chapter can be found from the following links:
+<blockquote>
+	<ol>
+		<li><a href='gms2tutorials:///SetVideoPosition?index=0'>Chapter 1</a>
+		<li><a href='gms2tutorials:///SetVideoPosition?index=1'>Chapter 2</a>
+		<li><a href='gms2tutorials:///SetVideoPosition?index=2'>Chapter 3</a>
+		<li><a href='gms2tutorials:///SetVideoPosition?index=3'>Chapter 4</a>
+		<li><a href='gms2tutorials:///SetVideoPosition?index=4'>Chapter 5</a>
+		<li><a href='gms2tutorials:///SetVideoPosition?index=5'>Chapter 6</a>
+		<li><a href='gms2tutorials:///SetVideoPosition?index=6'>Chapter 7</a>
+		<li><a href='gms2tutorials:///SetVideoPosition?index=7'>Chapter 8</a>
+	</ol>
+</blockquote>
+
+<p>
+Note that you can access the chapter list from the <b>Playlist</b> icon <img style="vertical-align:middle" src="Icon_Playlist.png">  in the top left-hand corner of the player and select the required video from there too.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="#"  class="prev">
+				<!--<div id="button-prev"></div>-->
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="Chapter_1/page01.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

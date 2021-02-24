@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 3 - Enemies">
+				<option style="font-weight:bold;" value="page01.html">Game Speed</option>
+				<option value="page02.html">The Enemy Object</option>
+				<option value="page03.html">Collisions</option>
+				<option value="page04.html">Collision Masks</option>
+				<option value="page05.html">Player Collisions</option>
+				<option value="page06.html">Summary</option>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+You've made it to Chapter 3 of our "My First Game" series of tutorials, and you're doing well! You should now have a player ship that can move and shoot, and bullets that are timed to come out at regular intervals. So, what next? Well, most games have some form of goal to achieve and more often than not this involves shooting something, so in this tutorial our goal is to add in some enemies for the player to shoot.
+
+<div class="note">
+	<b>NOTE:</b> If you have problems seeing the images in this tutorial, you can expand the tutorial window by dragging the edge into the IDE.<br><br>
+	<b>NOTE:</b> If you close the accompanying video then you can get it back by clicking <a href='gms2tutorials:///SetVideoPosition?index=2'>here</a>
+</div>
+
+<img class="center" src="01_01_Enemies.png" alt="Green Furry Enemies">
+
+<p>
+Before getting to the part where we add the enemies, however, we are going to take a moment to speed the game up and make it feel more responsive. We <i>could</i> do this by changing the amount of pixels that player moves when the arrow keys are pressed, along with changing the bullet speed and the timer instance variable we use... but there is an easier way!
+
+<p>
+As mentioned briefly in a previous tutorial, all games run at a speed which is defined by the number of times the game loop runs in a second. Each loop is called a game <i>frame</i> and so we call the speed at which a game runs the game <b>F</b>rames <b>P</b>er <b>S</b>econd (<b>FPS</b>). By default this is set to 30 by <i>GameMaker Studio 2</i> for any new project, which is fine for puzzle games, or games that don't require fast response times or even for mobile games, but for arcade style games like ours a preferred value would be 60.
+
+<p>
+The game Frames per Second setting can be changed in the <b>Game Options</b> which you can open from the button <img style="vertical-align:middle" src="../Icon_Options.png"> at the top of the IDE, or by going to the <b>Resource Tree</b> <i>Main</i> options item:
+
+<img class="center" src="01_02_Options.png" alt="Options Window">
+
+<p>
+As you can see from the image above, here you can change a few things that will affect how your project will run, including the game FPS value. So, set this to 60 now, then click on <i>Apply</i> and close the options then test the game again. You'll see that everything is much faster, and smoother when playing.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="../Chapter_2/page07.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page02.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 5 - Scoring">
+				<option style="font-weight:bold;" value="page05.html">Styling Text</option>
+				<option value="page06.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Score Controller</option>
+					<option value="page02.html">The Draw Event</option>
+					<option value="page03.html">Local Variables</option>
+					<option value="page04.html">Setting Score</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+We need to style the text on the screen to make it more readable and nicer to look at and for that we'll start by adding a new <b>Font Resource</b>. If you right click <img style="vertical-align:middle" src="../Icon_RMB.png"> on the <b>Font</b> resource and select <i>Create</i> it will create a new font resource and open the <b>Font Editor</b>:
+
+<img class="center" src="05_01_FontEditor.png" alt="The Font Editor">
+
+<p>
+Following the naming convention <tt>&lt;prefix&gt;_name</tt> we'll call this new font <i>fnt_score</i>. You can then go ahead and select a font from your machine to use as the game font and then in the editor set the <i>style</i> to <b>bold</b> to make it stand out that much more (if the font you select permits it), and set the <i>size</i> to 24 to make it bigger. Note that in the Font Editor you have a preview window that by default shows "Hello World". You can actually delete this and type in any text to get a preview of how it will look in the game. The other options in the Font Editor are outside of the scope of this tutorial, but you can read up on them by pressing <img style="vertical-align:middle" src="../Icon_f1.png"> to open the manual and going to the section on the Font Editor.
+
+<img class="center" src="05_02_FontSettings.png" alt="The Font Editor Settings">
+
+<p>
+You can close the font editor now, as the next bit of styling we need to do is done through code. By default <i>GameMaker Studio 2</i> will use a draw colour of white for everything, but at various points in your game you may wish to change this, and it's good practice to explicitly set the draw colour before drawing anything, so that is what we are going to do now as well as draw the text itself. Go back to the controller object <i>obj_score</i> and make sure you have the general Draw Event open as we need to edit it.
+
+<p>
+The first thing to do is tell <i>GameMaker Studio 2</i> that we want to draw with new font resource, so before the <d>Draw Value</tt> action we need to add a <b>Set Font</b> action <img style="vertical-align:middle" src="../Icon_DnD_SetFont.png"> like this:
+
+<p>
+
+<img class="center" src="05_03_SetFont.gif" alt="Set Font">
+
+<p>
+As the action name implies, this will set the font for drawing any text. Note that this will set it for the <i>whole game</i> and all subsequent text will be drawn using this font even if you don't use this action anywhere else, so if you want to use various fonts in a game you must call this action before every item that needs drawing, but if your game only needs one font then you can call this action in a controller at the start of the game once only.
+
+<p>
+We want to set the colour that the font is drawn in too, so now add the action <b>Set Draw Colour</b> <img style="vertical-align:middle" src="../Icon_DnD_SetDrawColour.png"> like this:
+
+<img class="center" src="05_04_SetColour.png" alt="Set The Draw Colour">
+
+<p>
+The default colour is white, so we don't need to change anything there (although you could set the colour to anything you want by clicking the colour swatch in the action which will open a colour picker for you or by giving a hexadecimal colour value), but we need to un-tick the "Use alpha from colour" option, as we want the text to be drawn solid white regardless. Again, like the <b>Set Font</b> action, this will set all further drawing to use the given colour (and not just for text either, this will affect shapes that are drawn and few other things), and so can be called once at game start if the colour isn't going to change, or once every time that you want to draw with another colour.
+
+<p>
+With that done, the full action list for the general Draw Event should now look like this:
+
+<img class="center" src="05_05_FinalCode.png" alt="Final Draw Event Actions">
+
+<p>
+You can now run the game again and you should see that the score is much more visible, maintains it's position and goes up when an enemy is destroyed:
+
+<img class="center" src="05_04_Screenshot.png" alt="Final Game Screenshot">
+
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page04.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page06.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

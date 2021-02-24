@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 8 - Spawners">
+				<option style="font-weight:bold;" value="page02.html">The Enemy Spawner</option>
+				<option value="page03.html">The Spawn Controller</option>
+				<option value="page04.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Game Room Setup</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring</option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sound</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Changing Rooms</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+We need to create a new object for the spawner so do that now (click <img style="vertical-align:middle" src="../Icon_RMB.png"> on the Object resource folder and select <i>Create</i>), and name this object <i>obj_enemyspawn</i>. Assign the object the enemy sprite too (<i>spr_enemy</i>), as what we are going to do is make our enemies "grow" in size and then spawn, so that the player has a visual cue that the spawner is there and that an enemy is coming and they can move out of the way and prepare. Having an enemy just appear out of nowhere would be unfair and annoying to the player!
+
+<p>
+We now need to add the action <img style="vertical-align:middle" src="../Icon_DnD_ScaleInstance.png"> <b>Set Instance Scale</b> (from the <i>Instances</i> library) into the <b>Create Event</b> of the object. So add the event now and the action, with the following values:
+
+<img class="center" src="02_01_InstanceScale.png" alt="Set Instance Scale Action">
+
+<p>
+<p>
+What we are doing is setting the built in variables for the assigned sprite scale to 10&#37; of the base scale. <i>GameMaker Studio 2</i> bases all the scale on <i>factors</i>, where a factor of 1 is 1:1 with the original sprite image, so a factor of 1.5 is 150&#37; bigger and a factor of 0.5 would be 50&#37; smaller. So, here we are setting the scaling factor to be 0.1 (10&#37;) and then we are going to scale the image up to 1 (100&#37;) before spawning the enemy.
+
+<p>
+To actually scale it up we need to use the <b>Step Event</b>, so add that now. We will use the same approach to scaling that we used previously for the image_alpha, so add the <b>Set Instance Scale</b> <img style="vertical-align:middle" src="../Icon_DnD_ScaleInstance.png"> action and then we'll do an <b>If Variable...</b> <img style="vertical-align:middle" src="../Icon_DnD_IfVariable.png"> check on it:
+
+<img class="center" src="02_02_RelativeScale.png" alt="Scale Instance Relatively">
+
+<p>
+This will scale up the image xscale and image yscale by 0.02 every game frame (note that the <i>relative</i> check-box is marked) and then it will check the value of the <tt>image_xscale</tt> variable to see if it is greater than 1 and if it is it sets the scale to 1. That's fine but we need to add one final action which we've not see before... The <b>Change Object Instance</b> <img style="vertical-align:middle" src="../Icon_DnD_ChangeObject.png"> action. We'll use this to change the calling instance (the spawner) into an enemy instance, so drag that into the action list now and set it to change into the object <i>obj_enemy</i>, like this:
+
+<img class="center" src="02_03_ChangeObject.png" alt="Change The Instance">
+
+<p>
+So, first we check to see if the scale is 1 (100&#37;) and if it is we change the instance into a version of the instance <i>obj_enemy</i> using the action <b>Change Object Instance</b> <img style="vertical-align:middle" src="../Icon_DnD_ChangeObject.png">.
+
+ <p>
+ With that done, you can go back to the game room and on the new <i>EnemyLayer</i> layer add five or six instances of the object (click <img style="vertical-align:middle" src="../Icon_LMB.png"> on the <i>obj_enemyspawn</i> object in the resource tree and then drag it into the editor window and release the mouse button). When ready, click the Play button <img style="vertical-align:middle" src="../Icon_Run.png"> to test your game and you should see that the enemies now scale into existence.
+ 
+ <p>
+<img class="center" src="02_01_ScaleEnemies.gif" alt="Enemies Scale Into Existence">
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page01.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page03.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

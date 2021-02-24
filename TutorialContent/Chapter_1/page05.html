@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 1 - Movement">
+				<option style="font-weight:bold;" value="page05.html">Chapter 1 - Rooms</option>
+				<option value="page06.html">Events And Code</option>
+				<option value="page07.html">Movement</option>
+				<option value="page08.html">Rotation</option>
+				<option value="page09.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">New Project</option>
+					<option value="page02.html">The Workspace</option>
+					<option value="page03.html">Sprites</option>
+					<option value="page04.html">Objects And Instances</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+The only resource that is created for you by default when you create a new project is the <b>Room Resource</b>. This is because all games require at least one room to run, and so <i>GameMaker Studio 2</i> makes this room for you. You can delete it, and you can edit it, and you can create further rooms using the right button <img style="vertical-align:middle" src="../Icon_RMB.png"> menu. In this case we will simply edit the default room "room0".
+
+<img class="center" src="05_01_DefaultRoom.png" alt="Default Room">
+
+<p>
+To open it for editing you need to double-click <img style="vertical-align:middle" src="../Icon_LMB.png"> on it, which will open the <b>Room Editor</b> in its own workspace:
+
+<img class="center" src="05_02_RoomEditor.png" alt="The Room Editor">
+
+<p>
+Rooms can be used for just about anything. You can have a single room for every aspect of your game, like splash screen, main menu, introduction, level 1, 2, 3, etc... or you can have a single room and generate everything using code. Normally you'd have a mix of both things, with some rooms fulfilling multiple purposes (like one room for all your different menus) and other rooms for a single purpose, like an overworld room, or a level room.
+
+<p>
+With the Room Editor workspace open, you will see that most of the screen is taken up with a large black area with grid squares over it. This area is the actual room, which is currently a blank canvas on which you can place resources to create your game level.
+
+<p>
+Everything that goes into a room is placed on a <i>layer</i> (we'll discuss layers in more detail in further tutorials) so make sure the <b>Instance Layer</b> is selected in the layer properties window:
+
+<img class="center" src="05_03_LayerProperties.png" alt="Layer Properties">
+
+<p>
+Then you can simply drag an instance of the object "obj_player" into the room by clicking <img style="vertical-align:middle" src="../Icon_LMB.png"> on the object in the resource tree and dragging it into the room where you want it to appear:
+
+<p>
+<img class="center" src="05_04_AddInstance.gif" alt="Add Instance To Layer">
+
+<p>
+We can actually run the "game" now as we have a room and an object so go ahead and click the <b>Run Button</b> <img style="vertical-align:middle" src="../Icon_Run.png"> at the top left of the IDE. You'll see some text scroll up in the output window at the bottom of the window, and then the game will run:
+
+<img class="center" src="05_05_Game.png" alt="Game Image">
+
+<p>
+Exciting stuff! Well, not yet... but it will be when we make our player instance actually do something. Before continuing, we should give the room a name, as the default name isn't very descriptive so give a slow double click <img style="vertical-align:middle" src="../Icon_LMB.png"> on resource name and call the room "<tt>rm_game</tt>". Now let's add some code to the player object.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page04.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page06.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

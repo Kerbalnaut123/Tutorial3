@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 3 - Enemies">
+				<option style="font-weight:bold;" value="page04.html">Collision Masks</option>
+				<option value="page05.html">Player Collisions</option>
+				<option value="page06.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Game Speed</option>
+					<option value="page02.html">The Enemy Object</option>
+					<option value="page03.html">Collisions</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+While you've been testing your game, you may have noticed that the bullets don't often actually appear to hit the enemies when they disappear... yet the hit is being registered, and the bullet is disappearing and the enemy "hp" is being affected. What's happening?
+
+<p>
+To answer that we need to back to the <b>Sprite Editor</b> and explain another of its features - the ability to set up a <i>collision mask</i>. So, open up the bullet sprite now and click the section labelled <b>Collision Mask</b>:
+
+<img class="center" src="04_01_CollisionMask.png" alt="Collision Mask Interface">
+
+<p>
+This section of the sprite editor permits you to define the area of the sprite that will be used to detect collisions, where a collision is defined as when two collision masks overlap at any point. By default, this will be set to <b>Automatic</b>, and you can see that in the preview window <i>GameMaker Studio 2</i> has added a darker rectangle to show the area of the sprite that will be used for collisions by default. However we want to edit this as it is too large for what we need, which means you have to click the <b>Mode</b> button and select <b>Manual</b>. This will open up the options to edit the collision mask, permitting you to change the mask shape and set the values required for the area it covers. We are going to use the <i>rectangular</i> collision mask, but we need to change it's size. We could do this by changing the values shown for left, top, right and bottom, however you can edit the collision mask directly in the preview window by simply dragging the little box "handles" around:
+
+<p>
+<img class="center" src="04_02_EditBbox.gif" alt="Edit Bounding Box">
+
+<p>
+What we want is to achieve is a collision mask that covers only the "head" of the bullet so that the rest won't register, something like this:
+
+<img class="center" src="04_03_BulletMask.png" alt="Bullet Collision Mask">
+
+<p>
+You now need to open the other two sprites (for the player and for the enemy) and edit their collision masks too, as in the image shown below:
+
+<img class="center" src="04_04_Masks.png" alt="Player And Enemy Collision Mask">
+
+<p>
+Note that we have left the player collision mask a fair bit smaller than the sprite itself. In most arcade games, the collision mask is kept smaller than the sprite to give the player a bit more room for error, and in this game we will do the same.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page03.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page05.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

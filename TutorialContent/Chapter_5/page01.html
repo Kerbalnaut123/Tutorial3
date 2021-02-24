@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 5 - Scoring">
+				<option style="font-weight:bold;" value="page01.html">Score Controller</option>
+				<option value="page02.html">The Draw Event</option>
+				<option value="page03.html">Local Variables</option>
+				<option value="page04.html">Setting Score</option>
+				<option value="page05.html">Styling Text</option>
+				<option value="page06.html">Summary</option>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+You've made it to Chapter 5 of the "My First Game" tutorial and in this chapter we are going to look at an important aspect of any game... keeping score. We're going to create a score for the player to use as a measure of how well they are doing in the game, and not only will we be keeping score, but we'll be using the different functions for drawing text to show it to the player as well. So, the player shoots an enemy and "kills" it and the game will award them a certain number of "points" which we'll add to their score. This score will then be displayed prominently at the top of the screen...
+
+<div class="note">
+	<b>NOTE:</b> If you have problems seeing the images in this tutorial, you can expand the tutorial window by dragging the edge into the IDE.<br><br>
+	<b>NOTE:</b> If you close the accompanying video then you can get it back by clicking <a href='gms2tutorials:///SetVideoPosition?index=4'>here</a>
+</div>
+
+<p>
+To keep things clear and easy to manage in our arena shooter project, we need to make a new object to act as our main "controller" object for the score. You should be familiar with how to do this so go ahead and make one now and call it "obj_score":
+<p>
+<ul>
+	<li>Click the right mouse <img style="vertical-align:middle" src="../Icon_RMB.png"> on the <b>Object</b> resource folder
+	<li>Select "<b>Create</b>" to create a new object
+	<li>Name the object "<i>obj_score</i>"
+</ul>
+
+<p>
+The object "obj_score" will be our <i>controller</i> object and so  we don't assign a sprite to it since we want it to draw other things (like the score text). Not assigning a sprite to an object means that when we run our game with an instance of that object in a room it will not be drawn, but that doesn't mean that it isn't doing anything. In this case our controller object won't be drawing a sprite but it will (by the end of this tutorial) draw some text and manage the player score value and certain game events.
+
+<p>
+Now we need to add an instance variable to the object in the <b>Create Event</b> which will be used to hold our score value. So, add a <b>Create Event</b> now, and in the action editor window that pops up drag the <b>Assign Variable</b> action <img style="vertical-align:middle" src="../Icon_DnD_AssignVariable.png"> and set it to the following:
+
+<img class="center" src="01_01_AssignVar.png" alt="Assign a score variable">
+
+<p>
+This gives us an instance variable with the name "<tt>thescore</tt>" and sets its value to 0. It is worth noting that previous versions of GameMaker had a built in global variable "score" ehich could be used for these things, but it meant that you could only ever have one score value for the entire game (which was limiting and it's generally better to have unique variables for score in each instance  - for example, if we wanted to make a two player game then we couldn't use the global <tt>score</tt> and would have to make instance variables for each one, the same as we have here). <i>GameMaker Studio 2</i> still has the "score" variable for backwards compatibility, but it has been deprecated and should not ever be used.
+
+<p>
+With that done we need go ahead and add a <b>Draw Event</b>.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="../Chapter_4/page07.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page02.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

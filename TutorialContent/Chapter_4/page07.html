@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 4 - Tiles And Views">
+				<option style="font-weight:bold;" value="page07.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Tiles And Views</option>
+					<option value="page02.html">Tile Set Sprites</option>
+					<option value="page03.html">Making A Tile Set</option>
+					<option value="page04.html">Tilemap Layers</option>
+					<option value="page05.html">Room Size</option>
+					<option value="page06.html">Cameras And Viewports</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+Getting to grips with the room editor is essential if you want to get the most out of <i>GameMaker Studio 2</i>, and there are many, many features to it. In this chapter we've covered two of the main ones, the <b>layer system</b> - and in particular <b>tilemap</b> layers -  and the <b>camera views</b> system. Let's quickly cover the main points you should have picked up while going through this:
+
+<p>
+<ul>
+	<li>How to set up a <b>tile set resource</b>
+	<li>How to create and order <b>layers</b> in the room editor
+	<li>How to paint tiles into a <b>tilemap layer</b>
+	<li>How to enable and set up view cameras
+	<li>How to make a view camera follow an object instance
+</ul>
+
+<p>
+Our arena shooter game is starting to look pretty good now, and we have all the essentials in there. However it's missing one or two things to take it from a prototype to a finished game, one of which is a scoring system which is what we'll cover in the next chapter of this tutorial...
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page06.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="../Chapter_5/page01.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

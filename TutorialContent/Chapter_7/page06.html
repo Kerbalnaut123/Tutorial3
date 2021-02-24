@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 7 - Title Screen">
+				<option style="font-weight:bold;" value="page06.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Title Page Sprites</option>
+					<option value="page02.html">Title Room</option>
+					<option value="page03.html">Title Room Properties</option>
+					<option value="page04.html">Adding The Title</option>
+					<option value="page05.html">Changing Rooms</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 6 - Sound</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+After completing this Chapter we now have a nicer introduction to the game. While setting this up you should have learned the following:
+
+<p>
+<ul>
+	<li>How to add and re-order rooms in the resource tree
+	<li>How to change the built-in properties (like image alpha) for drawing a sprite
+	<li>How to use the keyboard events
+	<li>How to change rooms using the Room actions
+</ul>
+
+With that we are almost finished with this tutorial, but we have one final task before us. Currently the game has a limited number of enemies to destroy, which limits the gameplay greatly, so in the next chapter we'll look at "spawning" more enemies as you play...
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page05.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="../Chapter_8/page01.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 5 - Scoring">
+				<option style="font-weight:bold;" value="page03.html">Local Variables</option>
+				<option value="page04.html">Setting Score</option>
+				<option value="page05.html">Styling Text</option>
+				<option value="page06.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Score Controller</option>
+					<option value="page02.html">The Draw Event</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+In our draw event we want to draw the score text on the screen at the same position at all times. This means that we can't use an absolute room position since as the camera moves about, the text will be lost off of one side or the other of the camera view. So what we need to do is draw the score text <i>relative</i> to the view camera. To make this easier we are going to use a couple of <b>local (temporary) variables</b>. We already know about <i>global scope</i> variables (they belong to the game, not any object in particular and can be read/set by all at any time), and <i>instance scope</i> variables (which are unique to every object instance, but can be accessed by other objects using the "point" method or "<tt>with</tt>", as discussed in <a href="../Chapter_3/page01.html">Chapter 3</a>)... but there is a third class of variables called <i>local</i> or <i>temporary</i> variables which we are going to use now.
+
+<p>
+A temporary or local variable is simply defined as one that is "local" to the script or event that is using it. This means that it is created when you use the action <img style="vertical-align:middle" src="../Icon_DnD_DeclareTemp.png"> and then discarded again at the end of the event or script that created it. This is useful for many, many things, not least of which is storing one-off values from calculations and saving memory resources. In this case we want to use local variables to store some return values from functions that we will use in the code.
+
+<p>
+Go ahead and drag the <b>Declare Temp</b> <img style="vertical-align:middle" src="../Icon_DnD_DeclareTemp.png"> action into the general Draw Event action workspace now and fill in the following:
+
+<img class="center" src="03_01_TempViewCam.png" alt="Assign View Camera to a Temporary Variable">
+
+<p>
+Here we are getting the ID value for the camera assigned to view port[0] using the built-in global scope array <tt>view_camera</tt>, and then storing it in the temporary variable "<tt>vc</tt>". You can have multiple view ports active in a room (up to 8, starting at 0, so it's <tt>view_camera[0 ... 7]</tt>) and can assign a camera to each one, so referencing (for example) <tt>view_camera[3]</tt> will mean you are dealing with the camera assigned to view port[3]. In this case we use view port[0] since that is the one we set up in the room editor in the <a href="../Chapter_4/page01.html">last chapter</a>.
+
+<p>
+We then need to get the position of the view camera within the room space, so we use the <b>Declare Temp</b> <img style="vertical-align:middle" src="../Icon_DnD_DeclareTemp.png"> action two more times:
+
+<img class="center" src="03_02_TempCamPos.png" alt="Assign View Camera Position to a Temporary Variable">
+
+<p>
+There is no action available for getting the position of a view and so we have to use a function in the "value" argument. These functions will return the (x/y) position of the view and store each one in the temporary variables "<tt>cx</tt>" and "<tt>cy</tt>", and note how we use the previously declared temporary variable here. We want to get one final value now so that we can position the text correctly in the middle of the screen, so add a final <b>Declare Temp</b> <img style="vertical-align:middle" src="../Icon_DnD_DeclareTemp.png"> action:
+
+<img class="center" src="03_03_TempCamWid.png" alt="Assign View Camera Width to a Temporary Variable">
+
+<p>
+Now we have those values in our temporary variables, actually drawing the text requires a single action - the <b>Draw Value</b> action <img style="vertical-align:middle" src="../Icon_DnD_DrawValue.png">:
+
+<img class="center" src="03_04_DrawText.png" alt="Draw The Score As Text">
+
+<p>
+All we are doing here is taking the position of the view within the room and then using those values to position the text we want to draw at a relative position, meaning that it will now move with the view camera (specifically, it'll always be at the top of the view port and centered). With that done you should have a full set of actions that looks like this:
+
+<img class="center" src="03_05_FinalActions.png" alt="Full Action Block">
+
+<p>
+You could drop this instance into the game room, but all you'd see would be a "0" on the screen since we don't actually add to the score value yet, so let's do that now.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page02.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page04.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

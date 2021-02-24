@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 4 - Tiles And Views">
+				<option style="font-weight:bold;" value="page04.html">Tilemap Layers</option>
+				<option value="page05.html">Room Size</option>
+				<option value="page06.html">Cameras And Viewports</option>
+				<option value="page07.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Tiles And Views</option>
+					<option value="page02.html">Tile Set Sprites</option>
+					<option value="page03.html">Making A Tile Set</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+We need to go back to the <b>Room Editor</b> workspace now, as we want to create a new layer called the <b>Tilemap Layer</b>. We currently have two instance layers (one for the player and the enemies, one for the bullets) and a background layer. We want to add a tilemap layer between the background layer and the bullet layer so click the <b>Add Tilemap</b> button <img style="vertical-align:middle" src="../Icon_Tilemap.png"> to add the layer first, then click <img style="vertical-align:middle" src="../Icon_LMB.png"> on it and drag it to position it between those two.
+
+<p>
+<img class="center" src="04_01_AddTilemap.gif" alt="Add A New Tilemap">
+
+<p>
+As with almost everything in <i>GameMaker Studio 2</i>, you can give this new layer a name like "<i>TilesLayer</i>" or something, and then you can go ahead and assign the tile set that we made previously to it. This is done by going to the <b>Layer Properties</b> window - which is opened by default on the left of the room editor when you select any layer - and then clicking the button that says "<i>No Tile Set</i>" which will open a window to let you select the tile set to use:
+
+<img class="center" src="04_02_ChooseTileset.png" alt="Choose A Tile Set">
+
+<p>
+The tile set selected will now open on the right of the room editor workspace and you can click on any of the tiles to select it for "painting" into the room:
+
+<p>
+<img class="center" src="04_03_PaintTiles.gif" alt="Painting Tiles">
+
+<p>
+We now need to paint the tiles in a way that makes sense for the room and the tile set chosen, so select the appropriate tiles to make the final tilemap layer look like this:
+
+<img class="center" src="04_04_FinalTilemapLayer.png" alt="Final Tilemap Layer">
+
+<p>
+A few things to note here:
+
+<p>
+<ul>
+	<li>Tiles will always be added to a grid the same size as the tile set assigned to the tilemap layer
+	<li>You can only place <i>one</i> tile per grid square
+	<li>You can select the empty tile to paint with and remove existing tiles, but you can also use the right mouse button <img style="vertical-align:middle" src="../Icon_RMB.png">
+	<li>You can move around the room using the middle mouse button <img style="vertical-align:middle" src="../Icon_MMB.png"> and moving the mouse
+</ul>
+
+<p>
+You can test the game now and it should play exactly the same as it did before, only now we have a nicer background for the action to happen on. In a later tutorial in this series we'll look at creating a "wall" around the arena so the player can't leave the room area, but for now we have what we wanted.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page03.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page05.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

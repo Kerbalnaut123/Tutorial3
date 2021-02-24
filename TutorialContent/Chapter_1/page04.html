@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 1 - Movement">
+				<option style="font-weight:bold;" value="page04.html">Chapter 1 - Objects And Instances</option>
+				<option value="page05.html">Rooms</option>
+				<option value="page06.html">Events And Code</option>
+				<option value="page07.html">Movement</option>
+				<option value="page08.html">Rotation</option>
+				<option value="page09.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">New Project</option>
+					<option value="page02.html">The Workspace</option>
+					<option value="page03.html">Sprites</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+Objects will be used for almost everything in your game, from the Player, to the enemies, to the bullets and explosions, and you can define how they behave and react by giving them code. But, before creating our first object, let's quickly run over what an object is <i>conceptually</i>.
+
+<p>
+The idea behind an object is to create a kind of blueprint of behaviours that can then be used within a game. We think of it as a blueprint because in a game you don't actually have any objects, you have <i>instances</i> instead. Instances are copies of the initial object placed within the game room. So, objects are in the resource tree, and are then used to create the instances that populate our game room. This means that changing an instance's properties will not change the properties of the object it was made from, however changing an object will change all subsequent instances created from it.
+
+<p>
+We are going to go ahead and create an object now. This object will be for our player and is what will permit it to move and shoot in the game room. To create the object, right click <img style="vertical-align:middle" src="../Icon_RMB.png"> on the "Object" resource folder and select <i>Create</i>:
+
+<img class="center" src="04_01_CreateObject.png" alt="Create Object">
+
+<p>
+This will create a new, blank, object for us and open the <b>Object Editor</b>:
+
+<img class="center" src="04_02_ObjectEditor.png" alt="Object Editor">
+
+<p>
+The object editor will be opened within the same workspace as the sprite editor, and it may push the sprite editor out of the visible space. You can hold down the middle mouse button <img style="vertical-align:middle" src="../Icon_MMB.png"> and move the mouse to "pan" the workspace around and you can also use <img style="vertical-align:middle" src="../Icon_Ctrl.png"> / <img style="vertical-align:middle" src="../Icon_Cmd.png"> + the mouse wheel <img style="vertical-align:middle" src="../Icon_MMB.png"> to zoom it in and out. When you have multiple resources open you can also use <img style="vertical-align:middle" src="../Icon_Ctrl.png"> / <img style="vertical-align:middle" src="../Icon_Cmd.png"> + <img style="vertical-align:middle" src="../Icon_Tab.png"> to open the workspace switcher and select the editor that you want to see directly.
+
+<p>
+Now we have our object we need to name it, so we'll follow the same convention we outlined previously and use a prefix to define what kind of resource it is and give it the unique name "<i>obj_player</i>" to match the sprite "spr_player" that we made previously.
+
+<p>
+We can now associate the sprite to the object by selecting it from the list of available sprites. To do this, you will need to click the button that is currently labelled "<i>No sprite</i>" and select the sprite "spr_player" from the list of available resources:
+
+<img class="center" src="04_03_ObjectSprite.png" alt="Adding A Sprite">
+
+<p>
+Associating an object with a sprite in this way means that when you place an instance of the object in the game room, this is what will be drawn and certain attributes of the sprite will be used by the instance. Let's go ahead and place an instance in the game room now...
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page03.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page05.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

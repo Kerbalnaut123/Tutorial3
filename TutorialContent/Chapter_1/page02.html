@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 1 - Movement">
+				<option style="font-weight:bold;" value="page02.html">Chapter 1 - The Workspace</option>
+				<option value="page03.html">Sprites</option>
+				<option value="page04.html">Objects And Instances</option>
+				<option value="page05.html">Rooms</option>
+				<option value="page06.html">Events And Code</option>
+				<option value="page07.html">Movement</option>
+				<option value="page08.html">Rotation</option>
+				<option value="page09.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">New Project</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+The workspace is the name we give to the main area in the middle of the window where you will be doing the bulk of your work. There are different types of workspace too, but we'll cover that a bit more later. On the right of the workspace we have the <b>Resource Tree</b>, which lists all the different elements your project can use, like sprites, or objects, or rooms. We will explain what each resource type is as we come to it in the tutorial, but we won't be covering all of them.
+
+<img class="center" src="02_01_Workspace.png" alt="The Main Workspace And Resource Tree">
+
+<p>
+It's worth noting that the resource tree is considered to be <b>docked</b> to the side of the window, and it can be opened or closed using the dock buttons:
+
+<p>
+<img class="center" src="02_02_OpenCloseDock.gif" alt="Open And Close Docks">
+
+<p>
+and it can also be moved to a different screen position and docked there (for example on the left):
+
+<p>
+<img class="center" src="02_03_MoveDock.gif" alt="Changing Dock Position">
+
+<p>
+GameMaker Studio 2 is fully customisable, so you can change the colours and fonts, or even set window layouts and save them. That aspect of the program won't be discussed in this tutorial and we'll be using the default layout, but you can find more information on customisation in the manual (press <img style="vertical-align:middle" src="../Icon_f1.png">).
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page01.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page03.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

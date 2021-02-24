@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 7 - Title Screen">
+				<option style="font-weight:bold;" value="page05.html">Changing Rooms</option>
+				<option value="page06.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Title Page Sprites</option>
+					<option value="page02.html">Title Room</option>
+					<option value="page03.html">Title Room Properties</option>
+					<option value="page04.html">Adding The Title</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 6 - Sound</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+The title text sprite says "Press Enter To Start", so we now need to have our instance detect that key and go to the next room to start the game. For that we need to add a <b>Key Up Event</b>
+
+<img class="center" src="05_01_KeyUp.png" alt="Key Up Event">
+
+<p>
+The Key Up Event detects when a key has been <i>released</i> and won't trigger until that happens. We use this event just to give the user a moment to get ready to play, as the other two key events would change the room instantly. In this event we want to add a single action, the <b>Room Goto Next</b> action <img style="vertical-align:middle" src="../Icon_DnD_RoomNext.png"> (from the <i>Rooms</i> library):
+
+<img class="center" src="05_02_RoomNext.png" alt="Room Goto Next">
+
+<p>
+There are a number of actions available for moving between rooms, but we only need this one since it simply goes to the next room in the Resource Tree, which is our game room. Care must be taken when using this action, though, as if there is <i>no</i> room after the current one (ie: the room using this code is the last one in the Resource Tree) we will get an error which will cause the game to close. Note that if we want to go to a specific room without following the order of the resource tree, then we would use:
+
+<img class="center" src="05_03_RoomGoto.png" alt="Room Goto">
+
+<p>
+The <b>Room Goto</b> <img style="vertical-align:middle" src="../Icon_DnD_RoomGoto.png"> action lets us go to any room in the resource tree (you can press <img style="vertical-align:middle" src="../Icon_f1.png"> to open the manual and see what all the other room actions are). If you run the game now, you'll get the title screen and pressing <tt>Enter</tt> will take you to the main game room to play. Note that because we already have the action <b>Room Restart</b> <img style="vertical-align:middle" src="../Icon_DnD_RoomRestart.png"> in the player object when they die, then when the player dies the title screen will be shown again, so the player can prepare before each game after dying.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page04.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page06.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

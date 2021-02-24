@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 1 - Movement">
+				<option style="font-weight:bold;" value="page08.html">Chapter 1 - Rotation</option>
+				<option value="page09.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">New Project</option>
+					<option value="page02.html">The Workspace</option>
+					<option value="page03.html">Sprites</option>
+					<option value="page04.html">Objects And Instances</option>
+					<option value="page05.html">Rooms</option>
+					<option value="page06.html">Events And Code</option>
+					<option value="page07.html">Movement</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+We are almost finished this tutorial, but there is one final thing we want to happen with our player instance... We need to make it rotate to always face the mouse while it is being moved around the screen. That way, the user can move with the keyboard and aim and shoot with the mouse. We'll leave the shooting for the next tutorial in the series and simply add the rotation for now.
+
+<p>
+For this, we are going to use another of the built-in variables that all objects have - the <tt>image_angle</tt>. This variable controls the angle of the sprite assigned to the instance, so setting it to anything other than 0 will rotate the sprite (and its associated collision mask) by the amount given. By default this is set to 0 for every instance in the room, but it can be changed at any time using the <b>Set Instance Rotation</b> action <img style="vertical-align:middle" src="../Icon_DnD_SetRotation.png">.
+
+<p>
+But what are we going to set the rotation too? We actually need to use a <i>function</i> to get the angle that we want to set the sprite to, and then we'll store the value it returns in a variable ready to set the rotation of the instance.
+
+<div class="note">
+	<b>NOTE</b>: It's important to note that most DnD&trade; actions will take functions and expressions too, not just values!
+</div>
+
+<p>
+In this case we are going to use a function to get the direction from the player instance to the mouse pointer and set the <tt>image_angle</tt> to that. So first of all, still in the "obj_player" <b>Step Event</b> we need to declare a <i>local</i> (temporary) variable and add our function to it. For that we drag the action <b>Declare Temp</b> <img style="vertical-align:middle" src="../Icon_DnD_DeclareTemp.png"> from the "<i>Common</i>" action library, and add the function like this:
+
+<img class="center" src="08_01_DeclareTemp.png" alt="Declare Temp Variable">
+
+<p>
+A local (temporary) variable is one that is only valid for the event that it is used in, so it's like a "use and throw away" variable - we only need to get the direction once in this step so there is no need to make it an instance or global variable. In this case we have named the variable "dir" and in future actions that will be what we use to refer to it. The function we will use is <tt>point_direction</tt>, which takes two positions within the room and returns the direction from the first position to the second in degrees from 0&deg; to 360&deg;. In this case we get the direction from the player position to the mouse position, which we get from the two <i>global scope</i> variables <tt>mouse_x</tt> and <tt>mouse_y</tt> (global scope variables are variables that do not "belong" to any instance, but instead belong to the whole game and as such all instances can change them and use them).
+
+<div class="note">
+	<b>NOTE</b>: In <i>GameMaker Studio 2</i> angles are calculated <b>anti-clockwise</b> where 0&deg; is to the right, 90&deg; is up, 180&deg; is to the left and 270&deg; is down.
+</div>
+
+<p>
+You can now add the <b>Set Instance Rotation</b> action <img style="vertical-align:middle" src="../Icon_DnD_SetRotation.png"> below (from the <i>Instances</i> action library), and set it to use the local variable "<tt>dir</tt>" to set the rotation of the <tt>image_angle</tt>:
+
+<img class="center" src="08_02_SetAngle.png" alt="Set Image Angle">
+
+<p>
+If you run the game one more time now, you should see that the player instance moves around and that it turns to follow the mouse:
+
+<p>
+<img class="center" src="08_03_FinalMove.gif" alt="Final Movement Test">
+
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page07.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page09.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

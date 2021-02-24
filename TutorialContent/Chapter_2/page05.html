@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 2 - Shooting">
+				<option style="font-weight:bold;" value="page05.html">The Bullet Layer</option>
+				<option value="page06.html">Bullet Timing</option>
+				<option value="page07.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Bullets</option>
+					<option value="page02.html">The Bullet Object</option>
+					<option value="page03.html">Layers</option>
+					<option value="page04.html">Better Bullets</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+As we discussed previously, how things are drawn will depend on the layer order within the room editor, and if we want our bullets to be drawn under the player, we have to create a new layer and add them to <i>that</i> instead of the instance layer that the player is on.
+
+<p>
+If you open the room editor for our game room (double click <img style="vertical-align:middle" src="../Icon_LMB.png"> on the resource in the Resource Tree), you will see that by default the <b>Layer Editor</b> is shown docked to the top left of the Room Editor workspace:
+
+<img class="center" src="05_01_RoomEditor.png" alt="Room Editor Layer Properties">
+
+<p>
+Currently we have two layers: "Instances" and "Background". These are the default layers created for any new room, where the background layer permits you to use a colour or a sprite for a single background image, and instances permits you to add instances in to the room.
+
+<p>
+Currently the player instance is on the "Instances" layer, and we need to add a new layer for our bullets, so click the <b>New Instance Layer</b> button <img style="vertical-align:middle" src="../Icon_InstanceLayer.png"> to create a new layer and name it "BulletsLayer" (to rename a layer, simply slow-click <img style="vertical-align:middle" src="../Icon_LMB.png"> twice on it).
+
+<p>
+The layer has been created <i>above</i> the player layer, which means that anything assigned to it will be drawn <i>after</i> the player, which we don't want. To resolve this, click <img style="vertical-align:middle" src="../Icon_LMB.png"> on the layer and then drag it down the list until it's under the "Instances" layer, but over the "Background" layer.
+
+<p>
+<img class="center" src="05_02_LayerOrder.gif" alt="Change Layer Order">
+
+<p>
+Layer order is actually defined by a value, called the "depth" value. If you look at the <b>Layer Properties</b> window (by default under the Layer Editor) you can see this value shown, and as you change layer order it will change too. You can change this value if you wish, but by default it's locked and handled by <i>GameMaker Studio 2</i>  automatically.
+
+<img class="center" src="05_03_LayerDepth.png" alt="Layer Depth">
+
+Essentially, the higher the depth, the "nearer" the camera it is and the lower the depth the further away, so a layer at depth -200 will draw under a layer with depth 300, for example.
+
+<p>
+We need to go back to our object "obj_player" and change the creation code to look like this:
+
+<img class="center" src="05_04_ChangedCreate.png" alt="Change Create Instance Action">
+
+<p>
+As mentioned previously, you can use the layer name (in "" as a <i>string</i>) to tell <i>GameMaker Studio 2</i> what layer to use, and now if you test the game again, the bullets will be created below the player object.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page04.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page06.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

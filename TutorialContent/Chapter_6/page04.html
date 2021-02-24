@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 6 - Sound">
+				<option style="font-weight:bold;" value="page04.html">Pitch</option>
+				<option value="page05.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Sound Files</option>
+					<option value="page02.html">The Sound Editor</option>
+					<option value="page03.html">Playing A Sound</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+When you play the game you should here the sound being played every time the enemy is destroyed, however the sound will quickly become tiring to the ear of those that play the game. We need to "spice it up" a bit and one of the easiest way to do this is to simply change the <i>pitch</i> of the sound.
+
+<p>
+So, still in the <i>obj_enemy</i> <b>Step Event</b>, and before the action for playing the sound, we need to add the action <b>Set Audio Pitch</b> <img style="vertical-align:middle" src="../Icon_DnD_SetPitch.png">:
+
+<p>
+
+<img class="center" src="04_01_SoundPitch.gif" alt="Add Change Pitch Action">
+
+<p>
+When you use a sound effect or music in <i>GameMaker Studio 2</i> it is played with a pitch value of 1. This is an arbitrary number that simply tells <i>GameMaker Studio 2</i> to play the sound "as is". If you lower the value of the pitch to say 0.7, then the sound will play at a lower pitch and a value higher than 1 like 1.5 will play it higher. In the action above we will use the <tt>random_range</tt> function to give us a random value between 0.8 and 1.2 for the sound effect pitch, and so every time it is played it will sound slightly different. This is a great method to add more life to your games and can be applied to almost any repetitive sound effect to make it more interesting and realistic.
+
+<p>
+The <b>Set Audio Pitch</b> <img style="vertical-align:middle" src="../Icon_DnD_SetPitch.png"> action should now look like this:
+
+<img class="center" src="04_02_SoundPitch.png" alt="Change Sound Pitch">
+
+<p>
+Note that if you set the pitch anywhere in code then the referenced sound will <i>always</i> play at that pitch unless set again, which is why we call this function not once at the start of the game, but every time the sound is going to played.
+
+<p>
+Play your game again now and note how the sound changes every time you destroy an enemy.
+
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page03.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page05.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

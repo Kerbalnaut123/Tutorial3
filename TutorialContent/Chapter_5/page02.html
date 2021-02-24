@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 5 - Scoring">
+				<option style="font-weight:bold;" value="page02.html">The Draw Event</option>
+				<option value="page03.html">Local Variables</option>
+				<option value="page04.html">Setting Score</option>
+				<option value="page05.html">Styling Text</option>
+				<option value="page06.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Score Controller</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+We are now going to add a <b>Draw Event</b> to our object. Click <img style="vertical-align:middle" src="../Icon_LMB.png"> the <b>Add Event</b> button now and select the <b>Draw Event</b> category:
+
+<img class="center" src="02_01_DrawEvents.png" alt="The Draw Events">
+
+<p>
+As you can see, there are multiple draw events to choose from, but for this we simply need the general draw event, which is the one at the top of the category list (highlighted in the image above). The general draw event is the one that <i>GameMaker Studio 2</i> uses when it <i>default draws</i> your instance sprite. What does this mean? Well, so far we haven't added <i>any</i> Draw Event to <i>any</i> of our instances, and yet they all draw their sprites to the screen when we run the project. This is because when you <i>don't</i> add a general Draw Event to an object yourself, <i>GameMaker Studio 2</i> will automatically assume you want to draw the sprite assigned to the instance along with any transforms (like colour or alpha or scale) that you have added. Essentially, the general Draw Event defaults to using the <b>Draw Self</b> action <img style="vertical-align:middle" src="../Icon_DnD_DrawSelf.png">.
+
+<p>
+That action will also draw the assigned sprite along with any applied transforms, just like the default drawing for an instance when it has no Draw Event. Now, when you <i>add</i> a general Draw Event to an object and in it add some action blocks, you are telling <i>GameMaker Studio 2</i> that <i>you</i> want to handle what is being drawn and <i>GameMaker Studio 2</i> will no longer draw anything except what you have put in the event, so it won't draw the assigned sprite unless you tell it to (and you can draw any sprite, it doesn't have to be the assigned one).
+
+<p>
+The general Draw Event (and all other draw events) will be performed once for every game frame, much like the Step Event will, and note that you can have unrelated actions in the draw event as well as draw actions (but it is recommended that you keep this to a minimum and use the Step Events instead where possible). However, <i>all <b>drawing</b> must be done in a draw event</i>, and in general placing draw functions in any other event will <i>not</i> work.
+
+<p>
+Just before we continue, it's worth noting that the Draw Events other than the general drawing, will <i>not</i> affect the instance default drawing, so that you can, for example, have no general Draw Event but have a <b>Draw End Event</b> and the instance will still default draw the sprite <i>and</i> whatever you have added into the Draw End Event. If you want to know more about the different events in the Draw Event category, you can press <img style="vertical-align:middle" src="../Icon_f1.png"> to open the manual and read up on them in the section on the <b>Object Editor</b>.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page01.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page03.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

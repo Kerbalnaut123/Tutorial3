@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 1 - Movement">
+				<option style="font-weight:bold;" value="page03.html">Chapter 1 - Sprites</option>
+				<option value="page04.html">Objects And Instances</option>
+				<option value="page05.html">Rooms</option>
+				<option value="page06.html">Events And Code</option>
+				<option value="page07.html">Movement</option>
+				<option value="page08.html">Rotation</option>
+				<option value="page09.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">New Project</option>
+					<option value="page02.html">The Workspace</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+We have our new project and an empty resource tree, so it's time to get started making our game. The aim of this tutorial is to simply get a "player" object onto the screen and moving around, and the first thing we are going to need for that is a <b>Sprite</b>.  A sprite is an image that is combined with certain properties which is then used in the game to represent something. In this case we are going to make a sprite to represent our player.
+
+<p>
+Let's go ahead and create our first sprite resource. Simply click the right mouse button <img style="vertical-align:middle" src="../Icon_RMB.png"> on the Sprite resource and select <i>Create</i>:
+
+<img class="center" src="03_01_CreateSprite.png" alt="Create A Sprite">
+
+<p>
+This will open the <b>Sprite Editor</b> where we can add an image and set certain properties for the sprite:
+
+<img class="center" src="03_02_SpriteEditor.png" alt="The Sprite Editor">
+
+<p>
+To start with, you need to name the sprite. This name will be the <i>unique</i> identifier for the sprite throughout your game and can be anything you wish, although we recommend that you use some kind of identifier prefix like "spr" or simply "s", as, when you get multiple resource types in your game code, it makes everything far easier to read. So with that in mind, call this sprite "<i>spr_player</i>".
+
+<p>
+We now need to add an image to the sprite to use as our player. For that we'll use the following image in this tutorial, but you can create your own if you want:
+
+<img class="center" src="../../TutorialResources/Images/spr_player.png" alt="Player Sprite">
+
+<p>
+You need to click on the button <img style="vertical-align:middle" src="../Icon_Import.png"> to open the file explorer where you can browse for an appropriate image, which must be either <tt>PNG</tt>, <tt>GIF</tt>, or <tt>JPG</tt> format. This tutorial has created a <i>TutorialResources</i> folder for you within the project files, and when you open the file explorer to choose a sprite, it should open on that folder where you can find the sprites used in the "Images" sub-folder. If you have any issues, you can also find the images <a href='gms2tutorials:///ShowFiles?path=../TutorialResources/Images'>here</a>.
+
+<p>
+You will get a warning saying that this action cannot be undone, which is fine since this is a new sprite and we aren't going to over-write anything, so click "Yes" to continue. The Sprite Editor will now look like this:
+
+<img class="center" src="03_03_ImageAdded.png" alt="Adding An Image">
+
+<p>
+The top part of the editor will show a single image, and the main window will have a larger preview. If you add in a sprite animation, the top part will show each individual frame and clicking on them would show that frame in the preview window below, but as we only have one image in the sprite it only shows that image.
+
+<p>
+Now that we've added an image, we need to set its <b>origin</b>. The origin is simply a point on the sprite that will be used to position it within our game room, and you can set it by either clicking <img style="vertical-align:middle" src="../Icon_LMB.png"> anywhere on the preview image to set the origin to the mouse position, or using the drop down menu to set a fixed position for it:
+
+<img class="center" src="03_04_SetOrigin.png" alt="The Origin Menu">
+
+<p>
+You can see that in the image we indicate <i>Middle Center</i> so select that as the position for the sprite origin. With that done, we are now ready to create an <b>Object Resource</b> which will use our sprite.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page02.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page04.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

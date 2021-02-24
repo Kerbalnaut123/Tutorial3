@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 1 - Movement">
+				<option style="font-weight:bold;" value="page07.html">Chapter 1 - Movement</option>
+				<option value="page08.html">Rotation</option>
+				<option value="page09.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">New Project</option>
+					<option value="page02.html">The Workspace</option>
+					<option value="page03.html">Sprites</option>
+					<option value="page04.html">Objects And Instances</option>
+					<option value="page05.html">Rooms</option>
+					<option value="page06.html">Events And Code</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+We want to now make the player instance move when the user presses the <b>Arrow Keys</b> on the keyboard. Currently we are adding 4 to the "x" value every game frame, so what we want to do is only add 4 if the keyboard right arrow is being pressed. For that we use the <b>if key down</b> <img style="vertical-align:middle" src="../Icon_DnD_KeyPressed.png"> action which will evaluate to either <tt>true</tt> or <tt>false</tt> if the given key is being held down, and if it evaluates to <tt>true</tt>, then we will move the instance by 4. The action can be found in the <b>Mouse and Keyboard</b> section of the action toolbox and you should drag it into the action workspace <i>above</i> the Assign Variable action:
+
+<img class="center" src="07_01_AddKey.png" alt="Add Keyboard Action">
+
+<p>
+Note that when you drag it near the existing action an area will be highlighted indicating that it can be placed either above or below the action in the chain (in the image above we place it above), and once you drop it you will see that it is connected to the Assign Variable action like this:
+
+<img class="center" src="07_02_ChainedAction.png" alt="Chained Actions">
+
+<p>
+That square chain on the left means that the "if" action will be called and <i>then</i> the Assign Variable action, but that they are independent of each other. We want to change this so that the Assign Variable action will only be called if a key is pressed so now we need to drag it onto the right hand side of the <b>if keyboard down</b> action like this:
+
+<img class="center" src="07_03_IfPressed.gif" alt="Move Action Into If">
+
+<p>
+Now what we have is the "if" checking for a key and only if it returns <tt>true</tt> (the key is being held down) will it run the assign variable action. We only need to set the key that is being checked now, so change the "<tt>vk_space</tt>" value for "<tt>vk_right</tt>" (the "vk_" variables are special built-in <b>constants</b> that are used to signify different keyboard keys). It should all now look like this:
+
+<img class="center" src="07_04_FullAction.png" alt="Completed Action Blocks">
+
+<p>
+The conditional we are checking is the value returned by the function "<tt>keyboard_check</tt>" which returns <tt>true</tt> if the key (in this case the right arrow) is being held down and <tt>false</tt> otherwise. Note that the assign variable action is placed to the right to indicate that it is only being run if the conditional check is true, and that this is also reflected in the action list on the left, where the assign variable entry has been tabbed too.
+
+<p>
+Run your game again (press <img style="vertical-align:middle" src="../Icon_Run.png">) and this time the player instance should do nothing unless you press the right arrow key.
+
+<p>
+We can expand the current action list now to cover the remaining three directions of up, left and down. Now you could repeat the whole process and add each action, or you could do what we'll do now, which is to copy and paste the actions we have and then edit them. To copy multiple actions, first you have to select them by holding down <img style="vertical-align:middle" src="../Icon_Ctrl.png"> / <img style="vertical-align:middle" src="../Icon_Cmd.png"> and then left clicking <img style="vertical-align:middle" src="../Icon_LMB.png">on each of the actions we want to copy. Now hold down <img style="vertical-align:middle" src="../Icon_Ctrl.png"> / <img style="vertical-align:middle" src="../Icon_Cmd.png"> + <b>C</b> to copy them and then <img style="vertical-align:middle" src="../Icon_Ctrl.png"> / <img style="vertical-align:middle" src="../Icon_Cmd.png"> + <b>V</b> to paste them. They will automatically be pasted after the previous actions, so you can go ahead and do this three times so that we have a total of four "if" checks:
+
+<img class="center" src="07_05_FullChecks.png" alt="All If Checks">
+
+<p>
+You can now edit the actions so that you have:
+<ul>
+	<li>if right arrow key down (vk_right): x + 4
+	<li>if left arrow key down (vk_left): x - 4
+	<li>if up arrow key down (vk_up): y - 4
+	<li>if down arrow key down (vk_down): y + 4
+</ul>
+
+<img class="center" src="07_06_FinalActions.png" alt="Final Actions">
+
+<p>
+As you can see, we <i>subtract</i> from x to go left this time, and we have also changed the last two conditionals to change the "y" position instead of the x position, where subtracting from "y" moves up, and adding to "y" moves down. In <i>GameMaker Studio 2</i> the (0, 0) position is considered as the top left hand corner of your room and the horizontal axis is the x axis and vertical axis is the y axis:
+
+<img class="center" src="07_03_RoomAxis.png" alt="Room Axis And Position">
+
+<p>
+Run the game now (press <img style="vertical-align:middle" src="../Icon_Run.png">) and move the instance with the arrow keys:
+
+<p>
+<img class="center" src="07_04_Move.gif" alt="Player Moving Example">
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page06.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page08.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

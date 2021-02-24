@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 2 - Shooting">
+				<option style="font-weight:bold;" value="page02.html">The Bullet Object</option>
+				<option value="page03.html">Layers</option>
+				<option value="page04.html">Better Bullets</option>
+				<option value="page05.html">The Bullet Layer</option>
+				<option value="page06.html">Bullet Timing</option>
+				<option value="page07.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Bullets</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+As with the sprite, we talked about how to create objects in the previous tutorial, so we'll only quickly run down how to do it here:
+
+<p>
+<ul>
+	<li>Click the right mouse <img style="vertical-align:middle" src="../Icon_RMB.png"> on the <b>Objects</b> resource folder
+	<li>Select "<b>Create</b>" to create a new object
+	<li>Name the object "<i>obj_bullet</i>"
+	<li>Click <img style="vertical-align:middle" src="../Icon_LMB.png"> where it says "<b>No Sprite</b>" and assign the sprite we just created
+</ul>
+
+<p>
+Our new object will have the <b>Events</b> window chained to it and ready for us to add some code into, but <i>first</i> we are going to go back to out player object and edit that a bit. So double click <img style="vertical-align:middle" src="../Icon_RMB.png"> on the object "<i>obj_player</i>" from the resource tree to open it in the current workspace if it's not open already.
+
+<p>
+Open the action editor in the <b>Step Event</b> (double click <img style="vertical-align:middle" src="../Icon_LMB.png"> the event if it's not open already). We are going to edit this now to dynamically create instances of the bullet object as the game is being played. Instance don't <i>just</i> get placed in the room editor, they can also be created (and destroyed) at runtime using certain actions, as we'll see.
+
+<p>
+In our <b>Step Event</b> action workspace, we need to add the following action at the end of the current list, <b>if mouse down</b> <img style="vertical-align:middle" src="../Icon_DnD_IfMouseDown.png"> (from the <i>Mouse And Keyboard</i> action library):
+
+<img class="center" src="02_01_MouseDown.png" alt="If Mouse Down Action">
+
+<p>
+This action functions just like the <b>if keyboard down</b> action and performs a conditional check to see if the left mouse button is being held down (remember, "if" conditionals check for a <tt>true</tt> or a <tt>false</tt> return value) and the subsequent blocks we add will be within this conditional and should only be run if the conditional returns <tt>true</tt> - essentially, the mouse button is being held down so do something.
+
+<p>
+Now for the action that will create our bullet if the mouse button is held down, which is the action <b>Instance Create</b> <img style="vertical-align:middle" src="../Icon_DnD_InstanceCreate.png"> (from the <i>Instances</i> action library). This should be dragged and added to the right of the "if" action to show that it should only be run if the condition returns <tt>true</tt>:
+
+<img class="center" src="02_02_AddCondition.png" alt="Add Action To Condition">
+
+<p>
+
+
+<p>
+To keep things simple for now, the arguments we are going to use in this argument are as follows:
+<ul>
+	<li>Object : obj_bullet <i>(the object to create)</i>
+	<li>X : <tt>mouse_x</tt> <i>(the "x" position in the room)</i>
+	<li>Y : <tt>mouse_y</tt> <i>(the "y" position in the room)</i>
+	<li>Layer : "Instances" <i>(the layer in the room editor to create the instance on)</i>
+</ul>
+
+<p>
+The last argument can be kept blank for now as it's not required, but for future reference, the Target argument permits you to assign a variable to hold the unique instance ID of the instance being created, which permits you to change things on that instance later as well as many other things. We're using the mouse position <i>global variables</i> for the moment as the position to create the instance just so that you can see something being created in the test game, and we are creating it on the layer "Instances". Remember, everything that goes in a game room gets placed on a layer, and in the room editor we can name our layers to anything we require. The layer name can then be used (enclosed in quotes "") to reference the layer in other actions.
+
+<p>
+The final action block should look like this:
+
+<img class="center" src="02_03_Final.png" alt="FInal Test Shoot Actions">
+
+<p>
+You can hit the Run button <img style="vertical-align:middle" src="../Icon_Run.png"> now and see what happens...
+
+<p>
+<img class="center" src="02_03_ShootTest.gif" alt="Shoot Test">
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page01.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page03.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

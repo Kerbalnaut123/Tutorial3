@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 4 - Tiles And Views">
+				<option style="font-weight:bold;" value="page02.html">Tile Set Sprites</option>
+				<option value="page03.html">Making A Tile Set</option>
+				<option value="page04.html">Tilemap Layers</option>
+				<option value="page05.html">Room Size</option>
+				<option value="page06.html">Cameras And Viewports</option>
+				<option value="page07.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Tiles And Views</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+To add a background to our game we want to use a <b>Tile Set</b> resource. Tile Sets are all based on <b>sprites</b>, and although so far we have only used sprites for game entities like the player or the bullets, we can also use sprites for backgrounds and tile sets, which can also be animated and do other interesting things.
+
+<p>
+First thing to do is create a new <b>Sprite</b> resource (right click <img style="vertical-align:middle" src="../Icon_RMB.png"> on the Sprite resource folder and select <i>Create</i>). Then import a tile set image. We are going to use the following image:
+
+<img class="center" src="02_01_Tiles.png" alt="Example Tile Set">
+
+<p>
+You can get the above tile set from the <i>TutorialResources</i> folder that the tutorial made automatically, in the "Images" sub-folder, when you click the Import button (if you have any issues, you can also find the images <a href='gms2tutorials:///ShowFiles?path=../TutorialResources/Images'>here</a>).
+
+<p>
+The tiles we are going to use for the game are 128x128 pixels each, all placed on the same image in a grid. Tile Sets are always comprised of a single sprite image, and must always be based on a grid, although the grid does not have to be square, just regular, ie: you can have 24x96 tiles, or 32x32, etc... as long as each part of the tile set image is on a grid it can be used in <i>GameMaker Studio 2</i> as a tile set.
+
+<p>
+Note that the top left corner of the tile set sprite is empty. <i>GameMaker Studio 2</i> will always use the first tile of a tile set as a "blank" tile, which is what is placed by default as an empty tile. When you add a tilemap layer in the room editor, which we'll cover in a moment, it will be empty and you won't see anything, but it's actualy filled with these "blank" tiles, and when you start to paint tiles onto the tilemap layer, if you delete a tile, it's not actually being removed, but instead it's being changed for this "empty" tile too. Note that even if the image you supply has non-transparent pixels in this first grid cell, <i>they will not be drawn</i>, so when making tile sets keep this in mind and just leave this first tile blank.
+
+<p>
+You can name this sprite now, something like "<i>spr_background</i>", and close the sprite editor before continuing (we don't need to set the origin of this sprite nor any of the collision properties as they are not relevant for tiles).
+
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page01.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page03.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

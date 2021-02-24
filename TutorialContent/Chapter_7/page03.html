@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 7 - Title Screen">
+				<option style="font-weight:bold;" value="page03.html">Title Room Properties</option>
+				<option value="page04.html">Adding The Title</option>
+				<option value="page05.html">Changing Rooms</option>
+				<option value="page06.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Title Page Sprites</option>
+					<option value="page02.html">Title Room</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 6 - Sound</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+By default the room will have been created with a <i>Background</i> layer, so select that now. This layer will be used to show the background tile sprite that we added previously. This is done from the background <b>Layer Properties</b> window:
+
+<img class="center" src="03_01_BackgroundProperties.png" alt="Background Layer Properties">
+
+<p>
+The background layer is a layer that can be cleared to a single colour and/or have a single image applied to it. In this case we want to assign the dark tile sprite we added, so click on the section marked <tt>&lt;no sprite&gt;</tt> and select the sprite <i>spr_darktile</i>. You'll see that the image now appears in the top left corner of our room as a background, but that's not exactly what we want... we want it to tile across the screen. We <i>could</i> have created a tilemap layer for this and added the background as single tile, but with the background layer it's a lot simpler: just tick the <i>Vertical tile</i> and <i>Horizontal Tile</i> check-boxes:
+
+<p>
+<img class="center" src="03_02_TileBackground.gif" alt="Tile Background">
+
+<p>
+Before continuing let's just look at a couple of the other options for backgrounds. You'll see that we have the option to <i>Stretch</i> the background image too. All this will do is stretch the background image used to fill the whole room area, which with a small image like the one we are using doesn't look right, which is why we tile it instead. You can also set the <i>Horizontal Speed</i> and <i>Vertical Speed</i> for the background layer. This will scroll the layer by the number of pixels given every game frame, so setting a horizontal speed of, for example, -2 will scroll the background from right to left at a rate of 2 pixels every game frame.
+
+<p>
+If you set this in the room editor you won't see anything happen, but in your game it will scroll. However sometimes you want to preview a change like this without having to compile the whole project to see how it looks, which is where the <b>Animate</b> feature of the room editor comes in very handy. In the main editor window, you have a bunch of tools in the top right corner:
+
+<img class="center" src="03_03_EditorTools.png" alt="Room Editor Tools">
+
+<p>
+The one we are interested in here is the <b>Play Animation</b> button <img style="vertical-align:middle" src="../Icon_Play.png">. Clicking this will animate the whole room such that any backgrounds that are set to move, or tile sets that are set to animate, or any sprite assets that have sub-images will be shown as they would appear in the game:
+
+<p>
+<img class="center" src="03_04_Animate.gif" alt="Animate Background">
+
+<p>
+With the horizontal background speed now set to -2, this will add interest to our title screen, we can continue on to make our title object.
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page02.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page04.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

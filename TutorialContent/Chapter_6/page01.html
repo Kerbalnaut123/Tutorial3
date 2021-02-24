@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 6 - Sound">
+				<option style="font-weight:bold;" value="page01.html">Sound Files</option>
+				<option value="page02.html">The Sound Editor</option>
+				<option value="page03.html">Playing A Sound</option>
+				<option value="page04.html">Pitch</option>
+				<option value="page05.html">Summary</option>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+This chapter we are going to dedicate to adding some sound to our game. Basic sound is incredibly easy to do and so this chapter will be a short one, but what you'll learn can be used anywhere in your own projects. At the moment the game is looking good, but it has no sound effects, and sound is an essential part of any gaming experience so let's go ahead and rectify that...
+
+<div class="note">
+	<b>NOTE:</b> If you have problems seeing the images in this tutorial, you can expand the tutorial window by dragging the edge into the IDE.<br><br>
+	<b>NOTE:</b> If you close the accompanying video then you can get it back by clicking <a href='gms2tutorials:///SetVideoPosition?index=5'>here</a>
+</div>
+
+<p>
+In this tutorial we will simply be adding a single sound effect when you destroy the enemy instances, so you can use any sound effect that you have on your hard-drive or you can use the one that we have supplied along with the tutorial, which will be found when you open the file explorer in the <i>TutorialResources</i> folder, in the "Sound" sub-folder (if you have any issues, you can also find the sound <a href='gms2tutorials:///ShowFiles?path=../TutorialResources/Sound'>here</a>). If you make your own sound effect, you should export it as a <tt>*.wav</tt>, an <tt>*.ogg</tt> or as an <tt>*mp3</tt> format sound. However note that <i>in general</i> you want all sound effects to be <tt>*.wav</tt> format and all music to be <tt>*.mp3</tt>, and <tt>*.ogg</tt> can be either, but is generally preferred for longer sound effects and music too.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="../Chapter_5/page06.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page02.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 2 - Shooting">
+				<option style="font-weight:bold;" value="page04.html">Better Bullets</option>
+				<option value="page05.html">The Bullet Layer</option>
+				<option value="page06.html">Bullet Timing</option>
+				<option value="page07.html">Summary</option>
+				<optgroup label="----------------------------------------">
+					<option value="page01.html">Bullets</option>
+					<option value="page02.html">The Bullet Object</option>
+					<option value="page03.html">Layers</option>
+				</optgroup>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+Going back to our game, if you press Run <img style="vertical-align:middle" src="../Icon_Run.png"> now then you can test our bullet creation actions:
+
+<img class="center" src="04_01_Bullets.png" alt="Not-very-good-bullets">
+
+<p>
+Hmmm... That's not really what we want is it? We need to change the actions to make the bullets fire from the <i>player</i> towards the mouse, and not just magically "appear" where the player clicks. To do that, let's first change the <b>Step Event</b> action <b>Instance Create</b> of the object "obj_player" by simply changing it to use the player position (<tt>x</tt> / <tt>y</tt>) instead of the mouse position (<tt>mouse_x</tt> / <tt>mouse_y</tt>):
+
+<img class="center" src="04_02_ChangedCreate.png" alt="Changed Creation Action">
+
+<p>
+Once you have made that change, we need to switch to our object "obj_bullet" (double click <img style="vertical-align:middle" src="../Icon_LMB.png"> it in the resource tree, or use <img style="vertical-align:middle" src="../Icon_Ctrl.png"> / <img style="vertical-align:middle" src="../Icon_Cmd.png"> + <img style="vertical-align:middle" src="../Icon_Tab.png"> to bring up the Workspace Switcher). We need to add a <b>Create Event</b> to our bullet. Unlike the <b>Step Event</b> that we used in the player object, the Create Event will be called only <i>once</i> when an instance of the object is first created in a room. This makes it an ideal place to set up variables and prepare conditions for how the object is to behave.
+
+<p>
+To add the event, click the <b>Add Event</b> button and select <b>Create</b> from the event list:
+
+<img class="center" src="04_03_CreateEvent.png" alt="Add Create Event">
+
+<p>
+Adding the event will chain an Action Editor window to the Event Editor ready for use. We want the bullet to shoot off in the direction of the mouse, so we need to add the following actions:
+
+<p>
+<table>
+	<tr>
+		<td style="width:50px;border:0px"><img align="middle" src="../Icon_DnD_SetPointDirection.png" alt="Set Point Direction"></td>
+		<td style="border:0px"><br>With this action we will set the built in <tt>direction</tt> variable to the direction from the (x / y) position to the (mouse_x / mouse_y) position.<br><br></td>
+	<tr>
+	<tr>
+		<td style="width:50px;border:0px"><img align="middle" src="../Icon_DnD_AssignVariable.png" alt="Assign Variable"></td>
+		<td style="border:0px">We now want to add "spread" to the bullets so we use this action along with the function <tt>random_range</tt> to add or subtract up to 4&deg; to the direction.<br><br></td>
+	<tr>
+	<tr>
+		<td style="width:50px;border:0px"><img align="middle" src="../Icon_DnD_SetSpeed.png" alt="Set Speed"></td>
+		<td style="border:0px">We have set the direction so now we use this action to set the speed to 16, which means it will move 16 pixels in the given direction every game frame. The "type" should be set as the direction, as we want to use that rather than the horizontal or vertical component.<br><br></td>
+	<tr>
+	<tr>
+		<td style="width:50px;border:0px"><img align="middle" src="../Icon_DnD_SetRotation.png" alt="Set Rotation"></td>
+		<td style="border:0px">Finally we set the sprite rotation (<tt>image_angle</tt>) to face the same way as the <tt>direction</tt> variable.<br><br></td>
+	<tr>
+</table>
+
+<p>
+<br>
+Adding these into the <b>Create Event</b> of the bullet object should give you this:
+
+<img class="center" src="04_04_CreateActions.png" alt="Create Event Actions">
+
+<p>
+Go ahead and hit Run <img style="vertical-align:middle" src="../Icon_Run.png"> now to see what happens:
+
+<p>
+<img class="center" src="04_04_Shooting.gif" alt="Shooting Moving Bullets">
+
+<p>
+That's starting to resemble something that could be called a game, but there is an issue... because we are creating the bullets on the same layer as the player, they are being drawn on top of the player which doesn't look right. So let's fix that now...
+
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="page03.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page05.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

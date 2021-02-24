@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 2 - Shooting">
+				<option style="font-weight:bold;" value="page01.html">Bullets</option>
+				<option value="page02.html">The Bullet Object</option>
+				<option value="page03.html">Layers</option>
+				<option value="page04.html">Better Bullets</option>
+				<option value="page05.html">The Bullet Layer</option>
+				<option value="page06.html">Bullet Timing</option>
+				<option value="page07.html">Summary</option>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles and Views</option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring </option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sounds</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Title Screen</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+This chapter picks up where the previous chapter left off. In the previous chapter, you created a sprite, assigned it to an object and placed an instance of that object in a room. You then made it move around with the arrow keys, and always rotate to point at the mouse position. That was a good start, but it still wasn't a game, so in this tutorial we're going to add a shooting mechanic to the project.
+
+<div class="note">
+	<b>NOTE:</b> If you have problems seeing the images in this tutorial, you can expand the tutorial window by dragging the edge into the IDE.<br><br>
+	<b>NOTE:</b> If you close the accompanying video then you can get it back by clicking <a href='gms2tutorials:///SetVideoPosition?index=1'>here</a>
+</div>
+
+<p>
+Obviously the first thing we are going to need is a new sprite to represent a bullet. We covered how to add a sprite in the first part of this tutorial, so we'll only briefly run through the procedure here:
+
+<p>
+<ul>
+	<li>Click the right mouse <img style="vertical-align:middle" src="../Icon_RMB.png"> on the <b>Sprites</b> resource folder
+	<li>Select "<b>Create</b>" to create a new sprite
+	<li>Name the sprite "<i>spr_bullet</i>"
+	<li>Click <img style="vertical-align:middle" src="../Icon_LMB.png"> "<b>Import</b>" and choose a suitable sprite (remember, while following this tutorial the file explorer should take you to the <i>TutorialResources</i> folder automatically where you can find the sprites used in the "Images" sub-folder). If you have any issues, you can also find the images <a href='gms2tutorials:///ShowFiles?path=../TutorialResources/Images'>here</a>.
+	<li>Place the origin of the sprite
+</ul>
+
+<p>
+If you have used the sprite that we used for the tutorial, you should be placing the origin near the bullet image "head" (as shown in the image below), as that is the point that we want to rotate it around and "pin" it into the room with. If you have used your own sprite then click the image where you think would be best place to put the origin for the image.
+
+<p>
+<img class="center" src="01_01_Origin.gif" alt="Placing The Origin">
+
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="../Chapter_1/page09.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page02.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

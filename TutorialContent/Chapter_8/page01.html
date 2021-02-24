@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 8 - Spawners">
+				<option style="font-weight:bold;" value="page01.html">Game Room Setup</option>
+				<option value="page02.html">The Enemy Spawner</option>
+				<option value="page03.html">The Spawn Controller</option>
+				<option value="page04.html">Summary</option>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring</option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sound</option>
+				<option style="font-weight:bold;" value="../Chapter_7/page01.html">Chapter 7 - Changing Rooms</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+Our project is shaping up quite nicely, but we have one final thing to fix before we can really call it a game... Currently, if you destroy the enemies without getting hit, then the game doesn't do anything and the user has to close the game window. That's not very satisfactory for the player! So, in this chapter we are going to talk about "spawners", which will be controller objects designed to constantly spawn enemies.
+
+<div class="note">
+	<b>NOTE:</b> If you have problems seeing the images in this tutorial, you can expand the tutorial window by dragging the edge into the IDE.<br><br>
+	<b>NOTE:</b> If you close the accompanying video then you can get it back by clicking <a href='gms2tutorials:///SetVideoPosition?index=7'>here</a>
+</div>
+
+<p>
+Before continuing to add these spawner objects, we first of all need to remove the enemies that are currently in the room and prepare a new instance layer, so open the room "<tt>rm_game</tt>" now. In this room, we are going to create a new layer specifically for our enemy instances, so create a new layer now (click <img style="vertical-align:middle" src="../Icon_LMB.png"> on the <b>New layer</b> icon <img style="vertical-align:middle" src="../Icon_InstanceLayer.png">) and name this layer <i>EnemyLayer</i>. Click <img style="vertical-align:middle" src="../Icon_LMB.png"> on the layer and drag it into the position between the <i>Instances</i> and <i>BulletsLayer</i>.
+
+<p>
+<img class="center" src="01_01_CreateLayer.gif" alt="Add Enemy Layer">
+
+<p>
+You can now select the <i>Instances</i> layer and then in the actual room editor workspace, use <img style="vertical-align:middle" src="../Icon_CTRL.png"> + <img style="vertical-align:middle" src="../Icon_LMB.png"> to select all the enemy instances one at a time. Using <img style="vertical-align:middle" src="../Icon_CTRL.png"> like this will group all the instances together so that you can do things with them like move or, as is the case here, delete them.
+
+<img class="center" src="01_02_SelectInstances.png" alt="Select All Enemy Instances">
+
+<p>
+With them all selected simply press the <img style="vertical-align:middle" src="../Icon_Backspace.png"> key to delete them. Now we can go ahead and create our spawner object.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="../Chapter_7/page06.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page02.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>

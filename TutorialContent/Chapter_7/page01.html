@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GameMaker Tutorial</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="style" charset="utf-8"/>
+		<script type="text/javascript">
+			var changePage = function(){
+				var newPage = document.getElementById("page-select");
+				//alert(newPage.value);
+				window.location.replace(newPage.value);
+				}
+		</script>
+	</head>
+<body>
+
+<h2>Tutorial - My First Game</h2>
+	<div class="head">
+		<select id="page-select" onChange="changePage()">
+			<optgroup label="Chapter 7 - Title Screen">
+				<option style="font-weight:bold;" value="page01.html">Title Page Sprites</option>
+				<option value="page02.html">Title Room</option>
+				<option value="page03.html">Title Room Properties</option>
+				<option value="page04.html">Adding The Title</option>
+				<option value="page05.html">Changing Rooms</option>
+				<option value="page06.html">Summary</option>
+			</optgroup>
+				<option style="font-weight:bold;" value="../index.html">Index</option>
+				<option style="font-weight:bold;" value="../Chapter_1/page01.html">Chapter 1 - Moving</option>			
+				<option style="font-weight:bold;" value="../Chapter_2/page01.html">Chapter 2 - Shooting</option>
+				<option style="font-weight:bold;" value="../Chapter_3/page01.html">Chapter 3 - Enemies</option>
+				<option style="font-weight:bold;" value="../Chapter_4/page01.html">Chapter 4 - Tiles And Views </option>
+				<option style="font-weight:bold;" value="../Chapter_5/page01.html">Chapter 5 - Scoring</option>
+				<option style="font-weight:bold;" value="../Chapter_6/page01.html">Chapter 6 - Sound</option>
+				<option style="font-weight:bold;" value="../Chapter_8/page01.html">Chapter 8 - Spawners</option>
+		  </optgroup>
+		</select>
+	</div>
+<div class="body-scroll">
+
+<p>
+When you start a game, you aren't normally just dropped straight into the action, but instead you are usually presented with some kind of title screen. In this chapter, we are going to show you how to set up a basic title screen for your game using a new room and with some extra graphics.
+
+<div class="note">
+	<b>NOTE:</b> If you have problems seeing the images in this tutorial, you can expand the tutorial window by dragging the edge into the IDE.<br><br>
+	<b>NOTE:</b> If you close the accompanying video then you can get it back by clicking <a href='gms2tutorials:///SetVideoPosition?index=6'>here</a>
+</div>
+
+<p>
+To start with we'll need a couple of sprites. One for the background, and one to show the game title, so make a new sprite now and import the "<tt>bg_tile_dark.png</tt>" image from the <i>TutorialResources</i> folder (if you have any issues, you can also find the images <a href='gms2tutorials:///ShowFiles?path=../TutorialResources/Images'>here</a>). As usual, name your sprite something appropriate like "spr_darktile" and then close the sprite editor.
+
+<img class="center" src="01_01_DarkBackground.png" alt="Dark Background Tile Sprite">
+
+<p>
+We have no need to change any of the properties for this sprite so you can close it now and then create another one and call it "spr_titlescreen". This sprite will hold the title screen text graphic, so open the tutorial assets folder and load the sprite "<tt>titlescreen.png</tt>".
+
+<img class="center" src="01_02_TitleScreenText.png" alt="Title Screen Text Sprite">
+
+<p>
+With this sprite we need to change the <i>origin</i>. We've covered this previously, but just to remind you, simply click <img style="vertical-align:middle" src="../Icon_LMB.png"> on the Origin drop down menu and select <i>Middle Center</i> to position the origin in the exact center of the sprite
+
+<img class="center" src="01_03_TitleScreenOrigin.png" alt="Title Screen Text Sprite Origin">
+
+<p>
+You can close this sprite now and we'll move on to creating the title screen room.
+
+<p>
+<br>
+</p>
+<p>
+
+  </div>
+
+  <div class="footer">
+    <div class="buttons">
+		<div class="clear">
+			<div style="float:left">
+				<a href="../Chapter_6/page05.html"  class="prev">
+				<div id="button-prev"></div>
+				</a>
+			</div>
+			<div style="float:right">
+				<a href="page02.html" class="next">
+					<div id="button-next"></div>
+				</a>
+			</div>
+		</div>
+    </div>
+    <h5>&copy; Copyright YoYo Games Ltd. 2019 All Rights Reserved</h5>
+  </div>
+
+</body>
+</html>
