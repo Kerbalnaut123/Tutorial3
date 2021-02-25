@@ -1,6 +1,8 @@
 {
   "resources": [
-    {"id":{"name":"room0","path":"rooms/room0/room0.yy",},"order":0,},
+    {"id":{"name":"Object_Player","path":"objects/Object_Player/Object_Player.yy",},"order":0,},
+    {"id":{"name":"Sprite_Player","path":"sprites/Sprite_Player/Sprite_Player.yy",},"order":0,},
+    {"id":{"name":"Room_Game","path":"rooms/Room_Game/Room_Game.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Amazon Fire","path":"options/amazonfire/options_amazonfire.yy",},
@@ -25,7 +27,7 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"room0","path":"rooms/room0/room0.yy",},},
+    {"roomId":{"name":"Room_Game","path":"rooms/Room_Game/Room_Game.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
