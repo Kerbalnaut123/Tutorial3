@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "Sprite_Player",
-    "path": "sprites/Sprite_Player/Sprite_Player.yy",
+    "name": "Sprite_Bullet",
+    "path": "sprites/Sprite_Bullet/Sprite_Bullet.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,8 +21,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":true,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"Object_Player","path":"objects/Object_Player/Object_Player.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":true,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"Object_Player","path":"objects/Object_Player/Object_Player.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":true,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"Object_Bullet","path":"objects/Object_Bullet/Object_Bullet.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -31,7 +30,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Object_Player",
+  "name": "Object_Bullet",
   "tags": [],
   "resourceType": "GMObject",
 }
