@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "Sprite_Bullet",
-    "path": "sprites/Sprite_Bullet/Sprite_Bullet.yy",
+    "name": "Sprite_Enemy",
+    "path": "sprites/Sprite_Enemy/Sprite_Enemy.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,8 +21,8 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":true,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"Object_Bullet","path":"objects/Object_Bullet/Object_Bullet.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":true,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"Object_Enemy","path":"objects/Object_Enemy/Object_Enemy.yy",},"parent":{"name":"Object_Bullet","path":"objects/Object_Bullet/Object_Bullet.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":true,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"Object_Enemy","path":"objects/Object_Enemy/Object_Enemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":true,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"Object_Enemy","path":"objects/Object_Enemy/Object_Enemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -31,7 +31,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Object_Bullet",
+  "name": "Object_Enemy",
   "tags": [],
   "resourceType": "GMObject",
 }
